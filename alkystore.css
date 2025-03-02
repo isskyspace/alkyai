@@ -85,6 +85,7 @@ main {
     padding: 20px;
     width: calc(33.333% - 50px);
     text-align: center;
+    margin-top: 30px;
 }
 
 .product img {
@@ -108,6 +109,7 @@ main {
     color: #333;
     font-weight: bold;
     margin: 10px 0;
+
 }
 footer {
     background-color: #333;
@@ -117,4 +119,25 @@ footer {
     margin-top: 20px;
     margin-left: 30px;
     width: 105%;
+}
+.present h1 {
+    font-size: 20px;
+    margin-left: 180px;
+    margin-top: 70px;
+}
+.present h2 {
+    font-size: 20px;
+    margin-left: 180px;
+    margin-top: 40px;
+}
+.present h3 {
+    font-size: 20px;
+    margin-left: 600px;
+    margin-top: 25px;
+
+}
+.present h4 {
+    font-size: 20px;
+    margin-left: 180px;
+    margin-top: 30px;
 }
