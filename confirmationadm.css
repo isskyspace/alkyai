@@ -7,7 +7,7 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.8;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     color: #333;
     width: 100%;
     margin-left: -110px; /* decallage page droite ou gauche en fct du - ou +*/
@@ -53,6 +53,16 @@ nav ul li a {
 
 .logo1 h1{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    margin-left:470px;
+    margin-left:480px;
     margin-top: 50px;
+}
+.logo1 img {
+    margin-bottom: -80px;
+    margin-left: 675px; /*decaller image vers gauche*/
+    width: 18%;
+}
+.logo1 h2{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left:525px;
+    margin-top: 40px;
 }
