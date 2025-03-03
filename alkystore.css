@@ -68,7 +68,8 @@ nav ul li a {
     }
 
     nav ul {
-        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
+        gap: 20px; /* Réduction de l’espace pour tenir sur une ligne */
+        justify-content: center; /* Aligne les éléments au centre */
     }
 
     nav ul li a {
@@ -91,6 +92,7 @@ nav ul li a {
     nav ul li {
         flex: 1;
         text-align: center; /* Assure l'alignement des éléments */
+        min-width: 120px; /* Empêche les éléments de se réduire trop */
     }
 }
 
