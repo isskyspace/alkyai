@@ -153,3 +153,23 @@ footer {
         padding: 15px;
     }
 }
+
+/* Spécial mobile pour "Mon" et "Compte" */
+@media screen and (max-width: 480px) {
+    nav ul li a {
+        font-size: 12px; /* Ajustement de la taille de police */
+        padding: 6px 12px; /* Réduit l'espace pour qu'il s'ajuste */
+    }
+
+    header .logo h1 {
+        font-size: 1.4rem; /* Taille plus petite sur mobile */
+    }
+
+    nav ul {
+        gap: 15px; /* Réduit l'espace entre les éléments du menu */
+    }
+
+    nav ul li a {
+        font-size: 14px; /* Réduit la taille du texte pour ajuster les éléments */
+    }
+}
