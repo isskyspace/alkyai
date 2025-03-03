@@ -37,26 +37,25 @@ nav {
     width: 100%;
     display: flex;
     justify-content: center;
-    flex-wrap: nowrap; /* Empêche le menu de se casser sur plusieurs lignes */
+    flex-wrap: wrap;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center; /* Centre tous les éléments du menu */
-    gap: 10px; /* Réduction de l'espacement entre les éléments pour qu'ils tiennent mieux */
+    gap: 20px;
     padding: 0;
     margin: 0;
-    flex-wrap: nowrap; /* Empêche les éléments de se casser */
+    flex-wrap: wrap; /* Permet d'adapter le menu sur plusieurs lignes si nécessaire */
 }
 
 /* Style des liens de navigation */
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 15px; /* Taille normale */
+    font-size: 15px; /* Taille correcte */
     padding: 8px;
-    white-space: nowrap; /* Empêche les mots de se casser */
 }
 
 /* Ajustement pour mobile */
@@ -71,18 +70,18 @@ nav ul li a {
     }
 
     nav ul {
-        gap: 8px; /* Espacement réduit pour que tout tienne sur une seule ligne */
+        gap: 10px; /* Réduit l'espacement pour que tout tienne sur une seule ligne */
         width: 100%; /* Prend toute la largeur */
         justify-content: center; /* Centre le menu */
     }
 
     nav ul li {
-        flex-shrink: 0; /* Empêche les éléments du menu de se réduire trop */
+        flex-basis: auto; /* Ajuste les éléments du menu */
     }
 
     nav ul li a {
-        font-size: 15px; /* Garde la taille du texte à 100% */
-        padding: 6px;
+        font-size: 13px; /* Réduction de la taille des liens du menu */
+        padding: 5px;
     }
 
     /* Alignement sous le logo */
