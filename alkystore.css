@@ -13,22 +13,22 @@ body {
     width: 100%;
 }
 
-/* En-tête en ligne avec menu bien espacé */
+/* En-tête en ligne */
 header {
     background-color: #333;
     color: #fff;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Aligne "AlkyAI" à gauche et le menu à droite */
     align-items: center;
-    padding: 15px 5%;
+    padding: 10px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-    flex-wrap: wrap; /* Empêche le débordement sur petits écrans */
+    flex-wrap: nowrap; /* Empêche la ligne de se casser */
 }
 
 /* Style du logo AlkyAI */
 header .logo h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem; /* Taille ajustée */
     font-family: Georgia, 'Times New Roman', Times, serif;
     white-space: nowrap;
 }
@@ -43,43 +43,35 @@ nav {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 100px; /* Espacement encore plus grand */
+    gap: 80px; /* Espacement équilibré */
     padding: 0;
-    flex-wrap: wrap; /* Permet de s'adapter sur mobile */
+    flex-wrap: nowrap; /* Garde tout sur une seule ligne */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
+    font-size: 15px; /* Taille correcte */
+    padding: 8px;
 }
 
 /* Ajustement pour mobile */
 @media screen and (max-width: 768px) {
     header {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
+        padding: 8px 3%;
     }
 
-    nav {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    header .logo h1 {
+        font-size: 1.4rem; /* Réduction de la taille */
     }
 
     nav ul {
-        flex-direction: row; /* Garde le menu en ligne */
-        flex-wrap: wrap; /* S'adapte sur les petits écrans */
-        justify-content: center;
-        gap: 20px; /* Réduit l'espacement sur mobile */
+        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
     }
 
     nav ul li a {
-        font-size: 13px; /* Réduit la taille pour éviter que ça coupe */
-        padding: 8px;
+        font-size: 12px; /* Texte plus petit pour ne pas couper */
+        padding: 5px;
     }
 }
 
