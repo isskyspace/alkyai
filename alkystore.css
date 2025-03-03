@@ -60,7 +60,7 @@ nav ul li a {
 @media screen and (max-width: 768px) {
     header {
         padding: 8px 3%;
-        flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
+        flex-wrap: nowrap; /* Empêche la ligne de se casser */
     }
 
     header .logo h1 {
@@ -68,19 +68,25 @@ nav ul li a {
     }
 
     nav ul {
-        gap: 20px; /* Réduction de l’espace pour tenir sur une ligne */
+        gap: 40px; /* Réduction de l’espace pour tenir sur une ligne */
         padding: 0;
     }
 
     nav ul li a {
-        font-size: 12px; /* Réduction de la taille du texte */
-        padding: 5px;
+        font-size: 14px; /* Réduit la taille du texte pour mieux s'adapter */
+        padding: 6px 12px; /* Ajuste les espaces autour du texte */
     }
 
-    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
+    /* Alignement "Mon" et "Compte" sur la même ligne sur mobile */
     .logo, nav {
         flex-basis: 100%;
         text-align: center; /* Centrer le contenu sur mobile */
+    }
+
+    /* Empêche les éléments de se déplacer */
+    nav ul {
+        gap: 20px; /* Espacement automatique */
+        justify-content: center; /* Centre tous les éléments sur mobile */
     }
 }
 
@@ -151,25 +157,5 @@ footer {
 
     .product {
         padding: 15px;
-    }
-}
-
-/* Spécial mobile pour "Mon" et "Compte" */
-@media screen and (max-width: 480px) {
-    nav ul li a {
-        font-size: 12px; /* Ajustement de la taille de police */
-        padding: 6px 12px; /* Réduit l'espace pour qu'il s'ajuste */
-    }
-
-    header .logo h1 {
-        font-size: 1.4rem; /* Taille plus petite sur mobile */
-    }
-
-    nav ul {
-        gap: 15px; /* Réduit l'espace entre les éléments du menu */
-    }
-
-    nav ul li a {
-        font-size: 14px; /* Réduit la taille du texte pour ajuster les éléments */
     }
 }
