@@ -13,47 +13,63 @@ body {
     width: 100%;
 }
 
-/* Style pour l'entête */
+/* Style pour l'en-tête */
 header {
     background-color: #333;
     color: #fff;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 10px 20px; /* Réduire le padding pour que l'entête soit moins grand */
+    padding: 15px 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
 }
 
 header .logo h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+    margin-right: 29px;
 }
 
-/* Menu horizontal */
+/* Centrer le menu et ajuster l'espacement */
 nav ul {
     list-style: none;
-    display: flex; /* Assure que le menu est horizontal */
-    padding-left: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 0 15px; /* Espace les éléments du menu */
-    font-size: 16px;    /* Réduit la taille du texte pour que tout tienne */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permet le passage à la ligne si nécessaire */
+    gap: 230px; /* Espacement augmenté */
+    padding: 0;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;  /* Réduit la taille de la police pour mobile */
+    font-size: 14px;
 }
 
-/* Section des produits */
+/* Ajustement du menu pour mobile */
+@media screen and (max-width: 768px) {
+    header .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        gap: 15px; /* Espacement réduit pour s’adapter */
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+}
+
+/* Pour la section des produits */
 .products {
-    margin: 20px auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 20px;
     justify-items: center;
 }
@@ -64,7 +80,7 @@ nav ul li a {
     padding: 20px;
     text-align: center;
     width: 100%;
-    max-width: 300px;  /* Limite la largeur des produits */
+    max-width: 300px;
 }
 
 .product h2 {
@@ -94,64 +110,41 @@ footer {
     width: 100%;
 }
 
-/* Section .present */
-.present h1, .present h2, .present h3, .present h4 {
-    font-size: 20px;
-    text-align: center;
-    margin-top: 20px;
+/* Ajustement pour mobile */
+@media screen and (max-width: 768px) {
+    .products {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .product {
+        max-width: 100%;
+    }
 }
 
-/* Media Queries pour les petits écrans (tablettes et mobiles) */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
     header {
-        padding: 10px 10px;  /* Réduit encore le padding pour les petits écrans */
-        flex-direction: row; /* Garde les éléments en ligne (horizontaux) */
+        padding: 10px 5%;
     }
 
     nav ul {
-        flex-direction: row;  /* Assure que les éléments restent en ligne même sur petits écrans */
-        justify-content: center; /* Centre le menu */
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* Encore plus compact pour petits écrans */
     }
 
     nav ul li {
-        margin: 0 10px;  /* Réduit l'espacement entre les éléments */
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        font-size: 12px;
     }
 
     .products {
-        grid-template-columns: 1fr 1fr;  /* 2 colonnes sur les petits écrans */
-    }
-
-    .product {
-        width: 100%;
-        max-width: 100%;
-    }
-
-    footer {
-        padding: 10px 0;
-    }
-}
-
-/* Media Queries pour les très petits écrans (mobiles très petits) */
-@media screen and (max-width: 480px) {
-    header {
-        padding: 10px 10px;  /* Réduit encore le padding pour les très petits écrans */
-    }
-
-    nav ul li {
-        margin: 0 8px;  /* Espace encore moins entre les éléments */
-        font-size: 14px;  /* Réduit la taille du texte */
-    }
-
-    .products {
-        grid-template-columns: 1fr;  /* Passe à une seule colonne pour les très petits écrans */
-    }
-
-    .product {
-        width: 100%;
-        max-width: 100%;
+        grid-template-columns: 1fr;
     }
 
     .present h1, .present h2, .present h3, .present h4 {
-        font-size: 18px;  /* Réduit la taille du texte pour les petits écrans */
+        font-size: 18px;
     }
 }
