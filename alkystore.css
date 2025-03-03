@@ -11,22 +11,17 @@ body {
     background-color: #f4f4f4;
     color: #333;
     width: 100%;
-    margin-left: -110px; /* decallage page droite ou gauche en fct du - ou +*/
-
 }
 
+/* Style pour l'entête */
 header {
     background-color: #333;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 130px;
-    margin-left: 20px;
-    margin-right: -110px; /* decallage bloc noir haut vers droite  */
+    padding: 15px 5%;  /* Utilisation de pourcentage pour rendre le padding adaptable */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-
-
 }
 
 header .logo h1 {
@@ -37,66 +32,43 @@ header .logo h1 {
 nav ul {
     list-style: none;
     display: flex;
+    padding-left: 0;
 }
 
 nav ul li {
-    margin-left: 90px;
-    font-size: 19px; /*hauteur bloc noir*/
-
+    margin-left: 20px;  /* Ajuste la marge pour espacer les éléments */
+    font-size: 16px;    /* Diminue la taille du texte pour les petits écrans */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 11px;
-    margin-left: 105px;
-} 
-
-
-
-
-
-
-
-
-.product li {
-    list-style: none;
-    background-color: #333;
-}
-.product li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 28px;
+    font-size: 14px;  /* Réduit la taille de la police pour mobile */
 }
 
-
-
-main {
-    padding: 25px;
-}
-
+/* Pour la section de produits */
 .products {
-    margin-left: 100px;
-    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    justify-items: center;
 }
+
 .product {
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 20px;
-    width: calc(33.333% - 50px);
     text-align: center;
-    margin-top: 30px;
-}
-
-.product img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    max-width: 300px;  /* Limite la largeur maximale pour chaque produit */
 }
 
 .product h2 {
-    font-size: 27px;
+    font-size: 1.2rem;
     margin: 10px 0;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .product p {
@@ -109,35 +81,67 @@ main {
     color: #333;
     font-weight: bold;
     margin: 10px 0;
-
 }
+
+/* Footer */
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     margin-top: 20px;
-    margin-left: 30px;
-    width: 105%;
+    width: 100%;
 }
-.present h1 {
-    font-size: 20px;
-    margin-left: 180px;
-    margin-top: 70px;
-}
-.present h2 {
-    font-size: 20px;
-    margin-left: 180px;
-    margin-top: 40px;
-}
-.present h3 {
-    font-size: 20px;
-    margin-left: 600px;
-    margin-top: 25px;
 
-}
-.present h4 {
+/* Section .present */
+.present h1, .present h2, .present h3, .present h4 {
     font-size: 20px;
-    margin-left: 180px;
-    margin-top: 30px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Media Queries pour les petits écrans (mobile) */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 15px 5%;
+    }
+    nav ul {
+        flex-direction: column;  /* Empile les éléments du menu en colonne */
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;  /* Ajuste les marges pour un espacement agréable */
+    }
+
+    .products {
+        grid-template-columns: 1fr 1fr;  /* Passe à deux colonnes sur mobile */
+    }
+
+    .product {
+        width: 100%;
+        max-width: 100%;  /* Les produits occuperont toute la largeur disponible */
+    }
+
+    footer {
+        width: 100%;
+    }
+}
+
+/* Media Queries pour très petits écrans (mobiles très petits) */
+@media screen and (max-width: 480px) {
+    header {
+        padding: 10px 5%;
+    }
+
+    nav ul li a {
+        font-size: 12px;  /* Réduit la taille de la police sur les petits écrans */
+    }
+
+    .products {
+        grid-template-columns: 1fr;  /* Passe à une seule colonne pour les très petits écrans */
+    }
+
+    .present h1, .present h2, .present h3, .present h4 {
+        font-size: 18px;  /* Réduit la taille du texte pour s'adapter */
+    }
 }
