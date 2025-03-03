@@ -7,77 +7,171 @@ body {
     background-color: #f8f9fa;
     margin: 0;
 }
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.header .menu a {
-    text-decoration: none;
-    color: #333;
-    font-size: 15px;
-    background-color: #333;
-    padding: 6px 10px;
-    border-radius: 7px;
-}
 
 .payment-container {
     background: #fff;
-    padding: 35px;
+    padding: 40px;
     border-radius: 15px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    width: 355px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 380px; /* Largeur par défaut */
     text-align: center;
     margin-top: 55px;
 }
+
 .payment-container img {
-    width: 100px;
-    margin-bottom: 15px;
-    margin-left: 5px; /*decaller image vers gauche*/
-}
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px -9px; /* premier px espacement des case et deuxieme px ecartement des case par rapport au bloc*/
-    border: 1px solid #333;
-    border-radius: 20px;
+    width: 120px;
+    margin-bottom: 20px;
 }
 
+.payment-container h2 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0; /* Espacement uniforme entre les inputs */
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 
 .payment-container li {
     list-style: none;
     background-color: #333;
-    margin-bottom: 1px;
-    padding-bottom: 10px; 
-    padding-top: 10px; 
-    margin-top: 15px; /*espacement du bloc par rapport a input*/
-    
-
+    margin-top: 20px; /* Espacement plus important entre l'input et le bouton */
+    padding: 12px 0;
+    border-radius: 5px;
 }
+
 .payment-container li a {
     text-decoration: none;
-    color: #fff ;
-
-    
+    color: #fff;
+    font-size: 16px;
+    display: block;
+    text-align: center;
 }
+
+.payment-container li a:hover {
+    background-color: #555;
+}
+
+.connect {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.connect h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #555;
+}
+
 .connect li {
     list-style: none;
-    margin-left: 39px;
+    margin-top: 10px;
     border: 2px solid #333;
-    margin-right: 55px; 
-    padding-left: 5px; /*deplacer le texte interieur du bloc*/
-
-
+    padding: 12px 20px;
+    border-radius: 5px;
+    display: inline-block;
 }
+
 .connect li a {
     text-decoration: none;
     color: #333;
-
+    font-size: 16px;
 }
-.connect h2 {
-    font-size: 15px;
+
+.connect li a:hover {
+    background-color: #f1f1f1;
+    color: #007BFF;
+}
+
+/* Media Queries pour mobile */
+@media only screen and (max-width: 768px) {
+    .payment-container {
+        width: 90%;  /* Réduit la largeur de la boîte de paiement à 90% de l'écran */
+        padding: 25px;  /* Moins de padding pour ajuster l'espace */
+    }
+
+    .payment-container img {
+        width: 100px; /* Ajuste la taille de l'image sur mobile */
+    }
+
+    .payment-container h2 {
+        font-size: 20px;  /* Taille de titre réduite sur mobile */
+        margin-bottom: 15px; /* Moins d'espace autour du titre */
+    }
+
+    input {
+        font-size: 14px;  /* Ajuste la taille de police des champs de saisie */
+        padding: 10px;  /* Moins de padding pour plus de compacité */
+    }
+
+    .payment-container li {
+        font-size: 14px;  /* Réduit la taille du texte pour le bouton */
+        padding: 10px 0;  /* Moins d'espace pour le bouton */
+    }
+
+    .connect h2 {
+        font-size: 16px;  /* Taille de texte réduite sur mobile */
+    }
+
+    .connect li {
+        font-size: 14px; /* Taille de police réduite pour le lien "Se connecter" */
+        padding: 10px 15px; /* Ajuste l'espace intérieur */
+    }
+
+    .connect li a {
+        font-size: 14px; /* Taille de texte réduite pour le lien */
+    }
+}
+
+/* Media Queries pour les petits écrans (téléphones plus petits) */
+@media only screen and (max-width: 480px) {
+    .payment-container {
+        width: 95%;  /* Utilise encore plus d'espace sur les petits écrans */
+        padding: 20px;  /* Réduit encore plus le padding */
+    }
+
+    .payment-container img {
+        width: 80px; /* Réduit la taille de l'image sur les petits écrans */
+    }
+
+    .payment-container h2 {
+        font-size: 18px;  /* Réduit la taille du titre */
+        margin-bottom: 12px;  /* Réduit l'espacement sous le titre */
+    }
+
+    input {
+        font-size: 12px;  /* Réduit la taille du texte dans les champs de saisie */
+        padding: 8px;  /* Réduit le padding des champs de saisie */
+    }
+
+    .payment-container li {
+        font-size: 14px;  /* Taille de texte réduite sur petits écrans */
+        padding: 8px 0;  /* Moins de padding sur les boutons */
+    }
+
+    .connect h2 {
+        font-size: 14px;  /* Taille réduite pour le texte de connexion */
+    }
+
+    .connect li {
+        font-size: 12px;  /* Plus petit pour le lien "Se connecter" */
+        padding: 8px 12px;  /* Réduit le padding du lien */
+    }
+
+    .connect li a {
+        font-size: 12px;  /* Taille de texte réduite pour le lien */
+    }
 }

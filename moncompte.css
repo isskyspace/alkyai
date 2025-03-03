@@ -3,66 +3,149 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-color: #f8f9fa;
+    background-color: #f4f6f9;
     margin: 0;
     width: 100%;
 }
-
 
 .payment-container {
     background: #fff;
     padding: 35px;
     border-radius: 15px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-    width: 355px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
     text-align: center;
     margin-top: 55px;
+    transition: transform 0.3s ease;
 }
+
+.payment-container:hover {
+    transform: translateY(-5px);
+}
+
 .payment-container img {
-    width: 100px;
-    margin-bottom: 15px;
-    margin-left: 5px; /*decaller image vers gauche*/
+    width: 120px;
+    margin-bottom: 20px;
+    margin-left: 5px;
 }
+
+h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
 input {
     width: 100%;
-    padding: 10px;
-    margin: 10px -9px; /* premier px espacement des case et deuxieme px ecartement des case par rapport au bloc*/
-    border: 1px solid #333;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
     border-radius: 20px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
 
-
-.payment-container li {
-    list-style: none;
-    background-color: #333;
-    margin-bottom: 1px;
-    padding-bottom: 10px; 
-    padding-top: 10px; 
-    margin-top: 15px; /*espacement du bloc par rapport a input*/
-    
-
+input:focus {
+    border-color: #000000;
+    outline: none;
 }
-.payment-container li a {
-    text-decoration: none;
-    color: #fff ;
 
-    
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.connect li {
-    list-style: none;
-    margin-left: 39px;
-    border: 2px solid #333;
-    margin-right: 55px; 
-    padding-left: 5px; /*deplacer le texte interieur du bloc*/
 
-
+button:hover {
+    background-color: #000000;
 }
-.connect li a {
-    text-decoration: none;
+
+.no-account {
+    margin-top: 20px;
+}
+
+.no-account p {
+    font-size: 14px;
     color: #333;
-
+    margin-bottom: 10px;
 }
-.connect h2 {
-    font-size: 15px;
+
+.connexion-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000; /* Couleur du bouton "Se connecter" */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.connexion-btn:hover {
+    background-color: #000000; /* Couleur au survol */
+}
+
+/* Adaptations pour les écrans mobiles */
+@media (max-width: 768px) {
+    .payment-container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 18px;
+    }
+
+    .payment-container img {
+        width: 100px;
+    }
+}
+
+/* Adaptations pour les petits écrans mobiles */
+@media (max-width: 480px) {
+    .payment-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .payment-container img {
+        width: 80px;
+    }
 }
