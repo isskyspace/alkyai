@@ -38,7 +38,6 @@ nav {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap; /* Empêche le menu de se casser sur plusieurs lignes */
-    overflow-x: auto; /* Permet le défilement horizontal si nécessaire */
 }
 
 nav ul {
@@ -55,7 +54,7 @@ nav ul {
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 13px; /* Réduction de la taille du texte pour qu'il tienne */
+    font-size: 15px; /* Taille normale */
     padding: 8px;
 }
 
@@ -74,7 +73,6 @@ nav ul li a {
         gap: 10px; /* Réduit l'espacement pour que tout tienne sur une seule ligne */
         width: 100%; /* Prend toute la largeur */
         justify-content: center; /* Centre le menu */
-        overflow-x: scroll; /* Permet d'afficher le menu horizontalement en cas de débordement */
     }
 
     nav ul li {
@@ -82,7 +80,7 @@ nav ul li a {
     }
 
     nav ul li a {
-        font-size: 12px; /* Réduction de la taille des liens du menu */
+        font-size: 14px; /* Réduction légère de la taille des liens du menu */
         padding: 5px;
     }
 
