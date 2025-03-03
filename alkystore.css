@@ -23,13 +23,23 @@ header {
     padding: 15px 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+    width: 100%;
+}
+
+/* Centrage du titre "AlkyAI" */
+header .logo {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center;
+    width: 100%;
 }
 
 header .logo h1 {
     font-size: 1.8rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-bottom: 10px;
-    margin-right: 29px;
+    text-align: center;
+    margin-top: 10px; /* Ajout d'espace en haut */
 }
 
 /* Centrer le menu et ajuster l'espacement */
@@ -38,40 +48,45 @@ nav ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap; /* Permet le passage à la ligne si nécessaire */
-    gap: 230px; /* Espacement augmenté */
+    gap: 30px; /* Espacement équilibré */
     padding: 0;
+}
+
+nav ul li {
+    display: block;
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 14px;
+    padding: 10px;
 }
 
 /* Ajustement du menu pour mobile */
 @media screen and (max-width: 768px) {
-    header .logo h1 {
-        font-size: 1.5rem;
-    }
-
     nav ul {
-        gap: 15px; /* Espacement réduit pour s’adapter */
+        flex-direction: column; /* Menu en colonne */
+        align-items: center;
+        gap: 10px;
     }
 
     nav ul li a {
-        font-size: 13px;
+        font-size: 14px;
+        display: block;
+        padding: 8px;
     }
 }
 
-/* Pour la section des produits */
+/* Section des produits */
 .products {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 20px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille responsive */
     gap: 20px;
     justify-items: center;
+    max-width: 1200px;
 }
 
 .product {
@@ -110,10 +125,11 @@ footer {
     width: 100%;
 }
 
-/* Ajustement pour mobile */
+/* Adaptation mobile */
 @media screen and (max-width: 768px) {
     .products {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /* Deux colonnes */
+        padding: 15px;
     }
 
     .product {
@@ -129,7 +145,7 @@ footer {
     nav ul {
         flex-direction: column;
         align-items: center;
-        gap: 10px; /* Encore plus compact pour petits écrans */
+        gap: 10px;
     }
 
     nav ul li {
@@ -141,7 +157,12 @@ footer {
     }
 
     .products {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Une seule colonne */
+        padding: 10px;
+    }
+
+    .product {
+        padding: 15px;
     }
 
     .present h1, .present h2, .present h3, .present h4 {
