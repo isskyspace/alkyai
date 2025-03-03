@@ -18,7 +18,7 @@ header {
     background-color: #333;
     color: #fff;
     display: flex;
-    flex-direction: column; /* Permet d'avoir le logo et le menu sur une colonne */
+    flex-direction: column; /* Empêche la ligne de se casser et place le menu sous le logo */
     align-items: center;
     padding: 10px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -44,7 +44,7 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center; /* Centre tous les éléments du menu */
-    gap: 10px; /* Espacement réduit pour que tout tienne sur une seule ligne */
+    gap: 15px; /* Espacement entre les éléments */
     padding: 0;
     margin: 0;
     flex-wrap: nowrap; /* Empêche les éléments de se casser */
@@ -56,7 +56,6 @@ nav ul li a {
     text-decoration: none;
     font-size: 15px; /* Taille normale */
     padding: 8px;
-    white-space: nowrap; /* Empêche les mots de se casser */
 }
 
 /* Ajustement pour mobile */
@@ -71,7 +70,7 @@ nav ul li a {
     }
 
     nav ul {
-        gap: 8px; /* Espacement réduit pour que tout tienne sur une seule ligne */
+        gap: 10px; /* Réduit l'espacement pour que tout tienne sur une seule ligne */
         width: 100%; /* Prend toute la largeur */
         justify-content: center; /* Centre le menu */
     }
@@ -80,10 +79,9 @@ nav ul li a {
         flex-shrink: 0; /* Empêche les éléments du menu de se réduire trop */
     }
 
-    /* Réduction de la taille des liens de menu sur mobile */
     nav ul li a {
-        font-size: 13px; /* Réduction de la taille des liens pour mobile */
-        padding: 6px;
+        font-size: 14px; /* Réduction légère de la taille des liens du menu */
+        padding: 5px;
     }
 
     /* Alignement sous le logo */
