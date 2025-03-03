@@ -23,7 +23,7 @@ header {
     padding: 10px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-    flex-wrap: nowrap; /* Empêche la ligne de se casser */
+    flex-wrap: wrap; /* Modifié pour permettre l'ajustement sur mobile */
 }
 
 /* Style du logo AlkyAI */
@@ -36,14 +36,14 @@ header .logo h1 {
 /* Centrer le menu et bien espacer */
 nav {
     display: flex;
-    justify-content: center; /* Centre le menu horizontalement */
+    justify-content: center;
     flex-grow: 1;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 80px; /* Espacement équilibré entre les éléments du menu */
+    gap: 80px; /* Espacement équilibré */
     padding: 0;
     flex-wrap: nowrap; /* Garde tout sur une seule ligne */
 }
@@ -60,7 +60,7 @@ nav ul li a {
 @media screen and (max-width: 768px) {
     header {
         padding: 8px 3%;
-        flex-wrap: nowrap; /* Empêche la ligne de se casser */
+        flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
     }
 
     header .logo h1 {
@@ -68,63 +68,134 @@ nav ul li a {
     }
 
     nav ul {
-        gap: 40px; /* Réduction de l’espace pour tenir sur une ligne */
-        padding: 0;
+        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
     }
 
     nav ul li a {
-        font-size: 14px; /* Réduit la taille du texte pour mieux s'adapter */
-        padding: 6px 12px; /* Ajuste les espaces autour du texte */
+        font-size: 12px; /* Texte plus petit pour ne pas couper */
+        padding: 5px;
     }
 
-    /* Alignement "Mon" et "Compte" sur la même ligne sur mobile */
+    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
     .logo, nav {
         flex-basis: 100%;
         text-align: center; /* Centrer le contenu sur mobile */
     }
 
-    /* Empêche les éléments de se déplacer */
+    /* Modification pour "Mon compte" et "Adhérer" sur mobile */
     nav ul {
-        gap: 20px; /* Espacement automatique */
-        justify-content: center; /* Centre tous les éléments sur mobile */
+        flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+        justify-content: space-around; /* Répartition équitable des éléments */
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center; /* Assure l'alignement des éléments */
     }
 }
 
-/* Section des produits */
+/* Section Investir */
 .products {
-    margin: 0 auto;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grille responsive */
-    gap: 20px;
-    justify-items: center;
-    max-width: 1200px;
-}
-
-.product {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    padding: 20px;
-    text-align: center;
-    width: 100%;
-    max-width: 300px;
+    padding: 40px 20px;
+    background-color: #ffffff;
+    margin-top: 20px;
 }
 
 .product h2 {
-    font-size: 1.2rem;
-    margin: 10px 0;
-}
-
-.product p {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.product .price {
-    font-size: 1.1rem;
+    font-size: 2rem;
     color: #333;
-    font-weight: bold;
-    margin: 10px 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#payment-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+#payment-form label {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 10px;
+    display: block;
+}
+
+#payment-form select, #payment-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.1rem;
+}
+
+#payment-form button {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+#payment-form button:hover {
+    background-color: #444;
+}
+
+/* Description AlkyBin */
+.alkybin-description {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    margin-top: 40px; /* Espacement augmenté pour ne pas être trop près du haut */
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.present {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.present h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.present p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.alkybin-description h3, .alkybin-description h4 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.alkybin-description p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.alkybin-description ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.alkybin-description ul li {
+    margin-bottom: 10px;
 }
 
 /* Footer */
@@ -157,5 +228,17 @@ footer {
 
     .product {
         padding: 15px;
+    }
+
+    .alkybin-description h3, .alkybin-description h4 {
+        font-size: 1.6rem;
+    }
+
+    .alkybin-description p {
+        font-size: 1rem;
+    }
+
+    .alkybin-description ul {
+        font-size: 1rem;
     }
 }
