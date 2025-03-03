@@ -18,11 +18,12 @@ header {
     background-color: #333;
     color: #fff;
     display: flex;
-    flex-direction: column; /* Empêche la ligne de se casser et place le menu sous le logo */
+    justify-content: space-between; /* Aligne "AlkyAI" à gauche et le menu à droite */
     align-items: center;
     padding: 10px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
+    flex-wrap: nowrap; /* Empêche la ligne de se casser */
 }
 
 /* Style du logo AlkyAI */
@@ -34,27 +35,24 @@ header .logo h1 {
 
 /* Centrer le menu et bien espacer */
 nav {
-    width: 100%;
     display: flex;
-    justify-content: center;
-    flex-wrap: nowrap; /* Empêche le menu de se casser sur plusieurs lignes */
+    justify-content: center; /* Centre le menu horizontalement */
+    flex-grow: 1;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center; /* Centre tous les éléments du menu */
-    gap: 15px; /* Espacement entre les éléments */
+    gap: 80px; /* Espacement équilibré entre les éléments du menu */
     padding: 0;
-    margin: 0;
-    flex-wrap: nowrap; /* Empêche les éléments de se casser */
+    flex-wrap: nowrap; /* Garde tout sur une seule ligne */
 }
 
 /* Style des liens de navigation */
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 15px; /* Taille normale */
+    font-size: 15px; /* Taille correcte */
     padding: 8px;
 }
 
@@ -62,32 +60,37 @@ nav ul li a {
 @media screen and (max-width: 768px) {
     header {
         padding: 8px 3%;
-        flex-direction: column; /* Permet d'avoir le logo et le menu sous forme de colonne sur mobile */
+        flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
     }
 
     header .logo h1 {
-        font-size: 1.4rem; /* Réduction de la taille du logo */
+        font-size: 1.4rem; /* Réduction de la taille */
     }
 
     nav ul {
-        gap: 10px; /* Réduit l'espacement pour que tout tienne sur une seule ligne */
-        width: 100%; /* Prend toute la largeur */
-        justify-content: center; /* Centre le menu */
-    }
-
-    nav ul li {
-        flex-shrink: 0; /* Empêche les éléments du menu de se réduire trop */
+        gap: 20px; /* Réduction de l’espace pour tenir sur une ligne */
+        padding: 0;
     }
 
     nav ul li a {
-        font-size: 14px; /* Réduction légère de la taille des liens du menu */
+        font-size: 12px; /* Texte plus petit pour ne pas couper */
         padding: 5px;
     }
 
-    /* Alignement sous le logo */
+    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
     .logo, nav {
-        width: 100%; /* Prend toute la largeur du conteneur */
-        text-align: center; /* Centre le logo et le menu */
+        flex-basis: 100%;
+        text-align: center; /* Centrer le contenu sur mobile */
+    }
+
+    /* Modification pour "Mon" et "Compte" alignés sur la même ligne sur mobile */
+    nav ul {
+        flex-wrap: nowrap; /* Garde tout sur une seule ligne */
+        justify-content: center; /* Centre le contenu */
+    }
+
+    nav ul li {
+        text-align: center; /* Assure l'alignement des éléments */
     }
 }
 
