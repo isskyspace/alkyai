@@ -90,6 +90,7 @@ nav ul li a {
     }
 
     nav ul li {
+        display: inline-block; /* Assure que les éléments restent sur la même ligne */
         text-align: center; /* Assure l'alignement des éléments */
     }
 }
