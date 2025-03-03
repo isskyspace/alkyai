@@ -23,7 +23,7 @@ header {
     padding: 10px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-    flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
+    flex-wrap: wrap; /* Modifié pour permettre l'ajustement sur mobile */
 }
 
 /* Style du logo AlkyAI */
@@ -38,7 +38,6 @@ nav {
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    align-items: center; /* Assure que les éléments du menu sont bien alignés */
 }
 
 nav ul {
@@ -69,7 +68,7 @@ nav ul li a {
     }
 
     nav ul {
-        gap: 20px; /* Réduction de l’espace pour tenir sur une ligne */
+        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
     }
 
     nav ul li a {
@@ -86,12 +85,12 @@ nav ul li a {
     /* Modification pour "Mon compte" et "Adhérer" sur mobile */
     nav ul {
         flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
-        justify-content: space-evenly; /* Répartition équitable des éléments */
+        justify-content: space-around; /* Répartition équitable des éléments */
     }
 
-    /* Ajouter un espacement pour que "Mon compte" et "Adhérer" soient sur la même ligne */
     nav ul li {
-        flex: 0 0 auto; /* Empêche les éléments de se rétrécir, les garde à leur taille naturelle */
+        flex: 1;
+        text-align: center; /* Assure l'alignement des éléments */
     }
 }
 
