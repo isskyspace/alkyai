@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="alkystore.css">
-    <title>Alky AI</title>
+    <title>KYMA AI</title>
     <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
     <header>
         <div class="logo">
-            <h1>ALKY AI</h1>
+            <h1>KYMA AI</h1>
         </div>
         <nav>
             <ul>
@@ -18,19 +18,17 @@
                 <li><a href="produit.html">Produits</a></li>
                 <li><a href="contacts.html">Contacts</a></li>
                 <li><a href="moncompte.html">Mon compte</a></li>
-                <li><a href="admission.html">Adherer</a></li>
+                <li><a href="admission.html">Adhérer</a></li>
             </ul>
         </nav>
     </header>
 
-    <div class="present">
-        
-    </div>
+    <div class="present"></div>
 
     <main>
         <section class="products">
             <div class="product">
-                <h2>Investir dans AlkyBin</h2>
+                <h2>Investir dans KymaBin</h2>
                 <form id="payment-form">
                     <label for="amount">Montant (en €) :</label>
                     <select name="amount" id="amount">
@@ -47,11 +45,11 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 ALKY AI Store. Tous droits réservés.</p>
+        <p>&copy; 2025 KYMA AI Store. Tous droits réservés.</p>
     </footer>
 
     <script>
-        const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq'); // Mets ta clé publique Stripe ici
+        const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
     
         document.getElementById('checkout-button').addEventListener('click', async () => {
             const amount = document.getElementById('amount').value;
@@ -77,6 +75,5 @@
             }
         });
     </script>
-    
 </body>
 </html>
