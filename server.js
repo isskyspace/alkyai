@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY); // Mets ta clé secrète Stripe ici
+require('dotenv').config(); // Charger les variables d'environnement
+
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+                                                                         // Mets ta clé secrète Stripe ici
 const path = require('path');
 
 const app = express();
