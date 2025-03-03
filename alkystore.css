@@ -13,67 +13,72 @@ body {
     width: 100%;
 }
 
-/* Style pour l'en-tête */
+/* En-tête en ligne avec menu bien espacé */
 header {
     background-color: #333;
     color: #fff;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center;
     width: 100%;
+    flex-wrap: wrap; /* Empêche le débordement sur petits écrans */
 }
 
-/* Centrage du titre "AlkyAI" */
-header .logo {
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center;
-    width: 100%;
-}
-
+/* Style du logo AlkyAI */
 header .logo h1 {
     font-size: 1.8rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    margin-bottom: 10px;
-    text-align: center;
-    margin-top: 10px; /* Ajout d'espace en haut */
+    white-space: nowrap;
 }
 
-/* Centrer le menu et ajuster l'espacement */
+/* Centrer le menu et bien espacer */
+nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Permet le passage à la ligne si nécessaire */
-    gap: 30px; /* Espacement équilibré */
+    gap: 100px; /* Espacement encore plus grand */
     padding: 0;
-}
-
-nav ul li {
-    display: block;
+    flex-wrap: wrap; /* Permet de s'adapter sur mobile */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px;
 }
 
-/* Ajustement du menu pour mobile */
+/* Ajustement pour mobile */
 @media screen and (max-width: 768px) {
+    header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
     nav ul {
-        flex-direction: column; /* Menu en colonne */
-        align-items: center;
-        gap: 10px;
+        flex-direction: row; /* Garde le menu en ligne */
+        flex-wrap: wrap; /* S'adapte sur les petits écrans */
+        justify-content: center;
+        gap: 20px; /* Réduit l'espacement sur mobile */
     }
 
     nav ul li a {
-        font-size: 14px;
-        display: block;
+        font-size: 13px; /* Réduit la taille pour éviter que ça coupe */
         padding: 8px;
     }
 }
@@ -128,7 +133,7 @@ footer {
 /* Adaptation mobile */
 @media screen and (max-width: 768px) {
     .products {
-        grid-template-columns: 1fr 1fr; /* Deux colonnes */
+        grid-template-columns: 1fr 1fr;
         padding: 15px;
     }
 
@@ -138,34 +143,12 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
-    header {
-        padding: 10px 5%;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    nav ul li a {
-        font-size: 12px;
-    }
-
     .products {
-        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-columns: 1fr;
         padding: 10px;
     }
 
     .product {
         padding: 15px;
-    }
-
-    .present h1, .present h2, .present h3, .present h4 {
-        font-size: 18px;
     }
 }
