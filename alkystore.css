@@ -18,10 +18,9 @@ header {
     background-color: #333;
     color: #fff;
     display: flex;
-    flex-wrap: wrap;  /* Permet au contenu de se réorganiser */
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;  /* Ajuste le padding pour que l'entête soit plus compact */
+    padding: 10px 20px; /* Réduire le padding pour que l'entête soit moins grand */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -30,24 +29,23 @@ header .logo h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+/* Menu horizontal */
 nav ul {
     list-style: none;
-    display: flex;
+    display: flex; /* Assure que le menu est horizontal */
     padding-left: 0;
     margin: 0;
-    flex-wrap: wrap; /* Permet aux éléments de se réorganiser sur plusieurs lignes */
-    justify-content: center; /* Centre les éléments du menu */
 }
 
 nav ul li {
-    margin: 5px;  /* Réduit les marges entre les éléments */
-    font-size: 16px;    /* Réduit la taille du texte pour les petits écrans */
+    margin: 0 15px; /* Espace les éléments du menu */
+    font-size: 16px;    /* Réduit la taille du texte pour que tout tienne */
 }
 
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 14px;  /* Réduit la taille de la police */
+    font-size: 14px;  /* Réduit la taille de la police pour mobile */
 }
 
 /* Section des produits */
@@ -106,28 +104,26 @@ footer {
 /* Media Queries pour les petits écrans (tablettes et mobiles) */
 @media screen and (max-width: 768px) {
     header {
-        padding: 10px 20px;  /* Réduit le padding pour l'entête */
-        flex-direction: column; /* Aligne les éléments en colonne */
-        text-align: center;
+        padding: 10px 10px;  /* Réduit encore le padding pour les petits écrans */
+        flex-direction: row; /* Garde les éléments en ligne (horizontaux) */
     }
-    
+
     nav ul {
-        flex-direction: column;  /* Aligne les éléments du menu en colonne */
+        flex-direction: row;  /* Assure que les éléments restent en ligne même sur petits écrans */
         justify-content: center; /* Centre le menu */
     }
 
     nav ul li {
-        margin: 5px 0;  /* Espacement entre les éléments du menu */
-        font-size: 16px;
+        margin: 0 10px;  /* Réduit l'espacement entre les éléments */
     }
 
     .products {
-        grid-template-columns: 1fr 1fr;  /* 2 colonnes sur écran moyen */
+        grid-template-columns: 1fr 1fr;  /* 2 colonnes sur les petits écrans */
     }
 
     .product {
         width: 100%;
-        max-width: 100%;  /* Produit occupe toute la largeur */
+        max-width: 100%;
     }
 
     footer {
@@ -138,25 +134,24 @@ footer {
 /* Media Queries pour les très petits écrans (mobiles très petits) */
 @media screen and (max-width: 480px) {
     header {
-        padding: 10px 10px;  /* Réduit encore le padding pour les petits écrans */
+        padding: 10px 10px;  /* Réduit encore le padding pour les très petits écrans */
     }
 
     nav ul li {
-        margin: 5px 0;  /* Réduit l'espacement entre les éléments */
-        font-size: 14px;
+        margin: 0 8px;  /* Espace encore moins entre les éléments */
+        font-size: 14px;  /* Réduit la taille du texte */
     }
 
     .products {
-        grid-template-columns: 1fr;  /* 1 seule colonne sur très petit écran */
+        grid-template-columns: 1fr;  /* Passe à une seule colonne pour les très petits écrans */
     }
 
     .product {
         width: 100%;
-        max-width: 100%;  /* Les produits prennent toute la largeur */
+        max-width: 100%;
     }
 
     .present h1, .present h2, .present h3, .present h4 {
         font-size: 18px;  /* Réduit la taille du texte pour les petits écrans */
     }
 }
-
