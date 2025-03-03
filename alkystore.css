@@ -18,7 +18,7 @@ header {
     background-color: #333;
     color: #fff;
     display: flex;
-    flex-direction: column; /* Empêche la ligne de se casser et place le menu sous le logo */
+    flex-direction: column; /* Permet d'avoir le logo et le menu sur une colonne */
     align-items: center;
     padding: 10px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -44,7 +44,7 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center; /* Centre tous les éléments du menu */
-    gap: 10px; /* Réduction de l'espacement entre les éléments pour qu'ils tiennent mieux */
+    gap: 10px; /* Espacement réduit pour que tout tienne sur une seule ligne */
     padding: 0;
     margin: 0;
     flex-wrap: nowrap; /* Empêche les éléments de se casser */
@@ -80,8 +80,9 @@ nav ul li a {
         flex-shrink: 0; /* Empêche les éléments du menu de se réduire trop */
     }
 
+    /* Réduction de la taille des liens de menu sur mobile */
     nav ul li a {
-        font-size: 15px; /* Garde la taille du texte à 100% */
+        font-size: 13px; /* Réduction de la taille des liens pour mobile */
         padding: 6px;
     }
 
