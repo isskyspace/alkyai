@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="alkystore.css">
+    <title>Alky AI</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>ALKY AI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produit.html">Produits</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="moncompte.html">Mon compte</a></li>
+                <li><a href="admission.html">Adherer</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="present">
+        <h1>AlkyBin – La Poubelle du Futur qui Transforme vos Déchets en Énergie</h1>
+        <h2>Investissez dans AlkyBin et transformez les déchets en énergie !</h2>
+    </div>
+
+    <main>
+        <section class="products">
+            <div class="product">
+                <h2>Investir dans AlkyBin</h2>
+                <form id="payment-form">
+                    <label for="amount">Montant (en €) :</label>
+                    <select name="amount" id="amount">
+                        <option value="100">1.00 €</option>
+                        <option value="500">5,00 €</option>
+                        <option value="1000">10,00 €</option>
+                        <option value="1500">15,00 €</option>
+                        <option value="2000">20,00 €</option>
+                    </select>
+                    <button type="button" id="checkout-button">Investir</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ALKY AI Store. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq'); // Mets ta clé publique Stripe ici
+    
+        document.getElementById('checkout-button').addEventListener('click', async () => {
+            const amount = document.getElementById('amount').value;
+    
+            if (!amount) {
+                alert("Veuillez sélectionner un montant.");
+                return;
+            }
+    
+            try {
+                const response = await fetch('http://localhost:3000/create-checkout-session', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ amount })
+                });
+    
+                if (!response.ok) throw new Error("Erreur lors de la création de la session de paiement.");
+    
+                const session = await response.json();
+                stripe.redirectToCheckout({ sessionId: session.id });
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    </script>
+    
+</body>
+</html>

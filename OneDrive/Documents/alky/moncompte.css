@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+    margin: 0;
+    width: 100%;
+}
+
+
+.payment-container {
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    width: 355px;
+    text-align: center;
+    margin-top: 55px;
+}
+.payment-container img {
+    width: 100px;
+    margin-bottom: 15px;
+    margin-left: 5px; /*decaller image vers gauche*/
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px -9px; /* premier px espacement des case et deuxieme px ecartement des case par rapport au bloc*/
+    border: 1px solid #333;
+    border-radius: 20px;
+}
+
+
+.payment-container li {
+    list-style: none;
+    background-color: #333;
+    margin-bottom: 1px;
+    padding-bottom: 10px; 
+    padding-top: 10px; 
+    margin-top: 15px; /*espacement du bloc par rapport a input*/
+    
+
+}
+.payment-container li a {
+    text-decoration: none;
+    color: #fff ;
+
+    
+}
+.connect li {
+    list-style: none;
+    margin-left: 39px;
+    border: 2px solid #333;
+    margin-right: 55px; 
+    padding-left: 5px; /*deplacer le texte interieur du bloc*/
+
+
+}
+.connect li a {
+    text-decoration: none;
+    color: #333;
+
+}
+.connect h2 {
+    font-size: 15px;
+}
