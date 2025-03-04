@@ -68,8 +68,7 @@ nav ul li a {
     }
 
     nav ul {
-        gap: 20px; /* Réduction de l’espace pour tenir sur une ligne */
-        justify-content: center; /* Aligne les éléments au centre */
+        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
     }
 
     nav ul li a {
@@ -92,7 +91,6 @@ nav ul li a {
     nav ul li {
         flex: 1;
         text-align: center; /* Assure l'alignement des éléments */
-        min-width: 120px; /* Empêche les éléments de se réduire trop */
     }
 }
 
@@ -161,6 +159,16 @@ nav ul li a {
     background-color: #ffffff;
     text-align: center;
 }
+#payment-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
 
 .present h2 {
     font-size: 2.5rem;
