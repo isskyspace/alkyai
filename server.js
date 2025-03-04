@@ -1,10 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config(); // Charger les variables d'environnement
-
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
-                                                                         // Mets ta clé secrète Stripe ici
 const path = require('path');
+
+console.log("Stripe Secret Key:", process.env.STRIPE_SECRET_KEY ? "Détectée" : "Non détectée");
 
 const app = express();
 app.use(express.json());
@@ -38,8 +38,8 @@ app.post('/create-checkout-session', async (req, res) => {
                 },
             ],
             mode: 'payment',
-            success_url: 'http://localhost:3000/success.html',
-            cancel_url: 'http://localhost:3000/cancel.html',
+            success_url: 'https://alkyai.railway.internal/success.html',
+            cancel_url: 'https://alkyai.railway.internal/cancel.html',
         });
 
         res.json({ id: session.id });
@@ -50,28 +50,5 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // 📌 Lancer le serveur
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`✅ Serveur démarré sur http://localhost:${PORT}`));
-document.getElementById('checkout-button').addEventListener('click', async () => {
-    const amount = document.getElementById('amount').value;
-
-    if (!amount || amount <= 0) {
-        alert("Veuillez entrer un montant valide.");
-        return;
-    }
-
-    try {
-        const response = await fetch('http://localhost:3000/create-checkout-session', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ amount })
-        });
-
-        if (!response.ok) throw new Error("Erreur lors de la création de la session de paiement.");
-
-        const session = await response.json();
-        stripe.redirectToCheckout({ sessionId: session.id });
-    } catch (error) {
-        alert(error.message);
-    }
-});
