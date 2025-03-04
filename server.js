@@ -60,8 +60,11 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // 📌 Lancer le serveur
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;  // Assure-toi que le bon port est utilisé
 
-app.listen(PORT, '0.0.0.0', () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`✅ Serveur en ligne sur http://0.0.0.0:${PORT}`);
+});
+
 
 
