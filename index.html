@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="alkystore.css">
-    <link rel="icon" type="image/png" href="DALL·E 2025-03-04 16.09.15 - A modern, minimalist logo featuring the letters 'KM' and 'AI'. The design should be sleek, bold, and futuristic, with a technology-inspired look. The .jpg">
     <title>Alky AI</title>
     <script src="https://js.stripe.com/v3/"></script>
+    <link rel="icon" type="image/png" href="DALL·E 2025-03-04 16.09.15 - A modern, minimalist logo featuring the letters 'KM' and 'AI'. The design should be sleek, bold, and futuristic, with a technology-inspired look. The .jpg">
+
     
         <!-- Vous pouvez ajouter d'autres éléments dans votre header ici (menu, etc.) -->
     
@@ -19,7 +20,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
-                <li><a href="produit.html">Produits</a></li>
+                <li><a href="produits.html">Produits</a></li>
                 <li><a href="contacts.html">Contacts</a></li>
                 <li><a href="admission.html">Adhérer</a></li>
                 <li><a href="moncompte.html">Mon compte</a></li>
@@ -40,15 +41,10 @@
                 <h2>Investir dans AlkyBin</h2>
                 <form id="payment-form">
                     <label for="amount">Montant (en €) :</label>
-                    <select name="amount" id="amount">
-                        <option value="100">1.00 €</option>
-                        <option value="500">5,00 €</option>
-                        <option value="1000">10,00 €</option>
-                        <option value="1500">15,00 €</option>
-                        <option value="2000">20,00 €</option>
-                    </select>
+                    <input type="number" id="amount" name="amount" min="1" step="0.01" placeholder="Entrez un montant" required>
                     <button type="button" id="checkout-button">Investir</button>
                 </form>
+                
             </div>
         </section>
 
