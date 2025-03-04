@@ -52,3 +52,26 @@ app.post('/create-checkout-session', async (req, res) => {
 // 📌 Lancer le serveur
 const PORT = 3000;
 app.listen(PORT, () => console.log(`✅ Serveur démarré sur http://localhost:${PORT}`));
+document.getElementById('checkout-button').addEventListener('click', async () => {
+    const amount = document.getElementById('amount').value;
+
+    if (!amount || amount <= 0) {
+        alert("Veuillez entrer un montant valide.");
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:3000/create-checkout-session', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ amount })
+        });
+
+        if (!response.ok) throw new Error("Erreur lors de la création de la session de paiement.");
+
+        const session = await response.json();
+        stripe.redirectToCheckout({ sessionId: session.id });
+    } catch (error) {
+        alert(error.message);
+    }
+});
