@@ -60,5 +60,6 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // 📌 Lancer le serveur
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => console.log(`✅ Serveur sur http://localhost:${PORT}`));
