@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+</IfModule>
+
+# Autoriser les requêtes POST
+<Limit POST>
+    Allow from all
+</Limit>
