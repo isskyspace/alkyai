@@ -2,10 +2,18 @@
 error_reporting(E_ALL);  // Affiche toutes les erreurs PHP
 ini_set('display_errors', 1);  // Active l'affichage des erreurs
 
-// En-têtes CORS : autoriser les requêtes du domaine du frontend
-header("Access-Control-Allow-Origin: https://alkyai.fr"); // Remplacez par l'URL correcte de votre frontend
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Content-Type: application/json");
+
+// Permettre l'accès cross-origin (CORS)
+header("Access-Control-Allow-Origin: https://alkyai.fr");  // Remplacez par l'URL de votre frontend
+header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+// Gérer les requêtes OPTIONS avant le POST (pour vérifier les en-têtes CORS)
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    http_response_code(200);
+    exit;
+}
 
 // Vérification des données POST
 if (!isset($_POST["prenom"], $_POST["nom"], $_POST["email"], $_POST["codemail"], $_POST["date_naissance"], $_POST["profession"])) {
