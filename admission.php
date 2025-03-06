@@ -10,19 +10,19 @@ if (!isset($_POST["prenom"], $_POST["nom"], $_POST["email"], $_POST["codemail"],
     exit;
 }
 
-// Connexion à la base de données avec la variable d'environnement Railway
-$database_url = getenv('MYSQL_URL'); // Récupérer l'URL de la base de données depuis l'environnement
+// Connexion à la base de données via l'URL MySQL depuis la variable d'environnement
+$mysql_url = getenv('MYSQL_URL'); // Utiliser la variable d'environnement MYSQL_URL
 
-// Analyser l'URL de la base de données
-$parsed_url = parse_url($database_url);
+// Extraire les informations de l'URL MySQL
+$parsed_url = parse_url($mysql_url);
+$host = $parsed_url['host'];
+$user = $parsed_url['user'];
+$password = $parsed_url['pass'];
+$dbname = ltrim($parsed_url['path'], '/');
+$port = $parsed_url['port'];
 
-$host = $parsed_url['mysql-4ikf.railway.internal'];      // L'hôte (ex: mysql-4ikf.railway.internal)
-$user = $parsed_url['root'];      // Utilisateur (ex: root)
-$password = $parsed_url['rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq'];  // Mot de passe (ex: rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq)
-$dbname = ltrim($parsed_url['path'], 'railway'); // Nom de la base de données (ex: railway)
-
-// Connexion à la base de données
-$conn = new mysqli($host, $user, $password, $dbname);
+// Créer une connexion à la base de données
+$conn = new mysqli($host, $user, $password, $dbname, $port);
 
 // Vérifier la connexion
 if ($conn->connect_error) {
