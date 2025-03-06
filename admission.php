@@ -54,7 +54,7 @@ if ($stmt->execute()) {
 } else {
     echo json_encode(["success" => false, "message" => "Erreur lors de l'inscription : " . $stmt->error]);
 }
-header("Access-Control-Allow-Origin: *"); // Remplacez '*' par l'URL de votre frontend pour plus de sécurité
+header("Access-Control-Allow-Origin: https://https://alkyai.fr/admission.html"); // Remplacez '*' par l'URL de votre frontend pour plus de sécurité
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
