@@ -3,65 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admission</title>
-    <link rel="stylesheet" href="admission.css">
+    <title>Test de formulaire POST</title>
 </head>
 <body>
-    <div class="payment-container">
-        <img src="logo.png" alt="Alky Logo">
-        <h2>Je m'inclus dans le projet</h2>
-        <!-- Formulaire qui envoie les données en POST au fichier PHP -->
-        <form id="payment-form" action="admission.php" method="POST">
-            <input type="text" name="prenom" placeholder="Prénom" required>
-            <input type="text" name="nom" placeholder="Nom" required>
-            <input type="email" name="email" placeholder="Votre Mail" required>
-            <input type="password" name="codemail" placeholder="Votre mot de passe" required>
-            <input type="text" name="date_naissance" placeholder="Date de Naissance (AA/NN)" required>
-            <input type="text" name="profession" placeholder="Profession" required>
-            <button type="submit" class="admit-button">Admettre</button>
-        </form>
-    </div>
+    <h2>Formulaire de test</h2>
+    <form action="admission.php" method="POST">
+        <input type="text" name="prenom" placeholder="Prénom" required><br>
+        <input type="text" name="nom" placeholder="Nom" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="codemail" placeholder="Mot de passe" required><br>
+        <input type="text" name="date_naissance" placeholder="Date de Naissance" required><br>
+        <input type="text" name="profession" placeholder="Profession" required><br>
+        <button type="submit">Envoyer</button>
+    </form>
 </body>
 </html>
-<script>
-    // Fonction pour valider le formulaire
-    document.getElementById("payment-form").addEventListener("submit", function(event) {
-        // Récupération des champs du formulaire
-        const prenom = document.getElementById("prenom").value;
-        const nom = document.getElementById("nom").value;
-        const email = document.getElementById("email").value;
-        const codemail = document.getElementById("codemail").value;
-        const date_naissance = document.getElementById("date_naissance").value;
-        const profession = document.getElementById("profession").value;
-
-        // Validation des champs requis
-        if (!prenom || !nom || !email || !codemail || !date_naissance || !profession) {
-            alert("Tous les champs sont obligatoires.");
-            event.preventDefault(); // Empêche l'envoi du formulaire
-            return;
-        }
-
-        // Validation de l'email
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert("Veuillez entrer un email valide.");
-            event.preventDefault();
-            return;
-        }
-
-        // Validation de la date de naissance (format AA/NN)
-        const dateRegex = /^\d{2}\/\d{2}$/;
-        if (!dateRegex.test(date_naissance)) {
-            alert("Veuillez entrer une date de naissance valide (AA/NN).");
-            event.preventDefault();
-            return;
-        }
-
-        // Validation du mot de passe (minimum 6 caractères)
-        if (codemail.length < 6) {
-            alert("Le mot de passe doit comporter au moins 6 caractères.");
-            event.preventDefault();
-            return;
-        }
-    });
-</script>

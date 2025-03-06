@@ -11,7 +11,7 @@ if (!isset($_POST["prenom"], $_POST["nom"], $_POST["email"], $_POST["codemail"],
 }
 
 // Connexion à la base de données
-$host = "localhost"; // Adresse de ton serveur MySQL
+$host = "127.0.0.1"; // Adresse de ton serveur MySQL
 $user = "root"; // Ton utilisateur MySQL
 $password = ""; // Ton mot de passe MySQL (vide par défaut sur local)
 $dbname = 'alkystore'; // Nom de ta base de données
