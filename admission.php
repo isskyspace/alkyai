@@ -16,10 +16,10 @@ $database_url = getenv('MYSQL_URL'); // Récupérer l'URL de la base de données
 // Analyser l'URL de la base de données
 $parsed_url = parse_url($database_url);
 
-$host = $parsed_url['host'];      // L'hôte (ex: mysql-4ikf.railway.internal)
-$user = $parsed_url['user'];      // Utilisateur (ex: root)
-$password = $parsed_url['pass'];  // Mot de passe (ex: rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq)
-$dbname = ltrim($parsed_url['path'], '/'); // Nom de la base de données (ex: railway)
+$host = $parsed_url['mysql-4ikf.railway.internal'];      // L'hôte (ex: mysql-4ikf.railway.internal)
+$user = $parsed_url['root'];      // Utilisateur (ex: root)
+$password = $parsed_url['rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq'];  // Mot de passe (ex: rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq)
+$dbname = ltrim($parsed_url['path'], 'railway'); // Nom de la base de données (ex: railway)
 
 // Connexion à la base de données
 $conn = new mysqli($host, $user, $password, $dbname);
