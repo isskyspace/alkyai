@@ -1,4 +1,14 @@
 <?php
+ini_set('log_errors', 1);
+ini_set('error_log', 'php_errors.log');
+error_log("Test d'erreur PHP");
+
+// Afficher toutes les erreurs PHP pour débogage
+error_reporting(E_ALL);  // Affiche toutes les erreurs PHP
+ini_set('display_errors', 1);  // Affiche les erreurs directement dans le navigateur
+
+// Loguer toute erreur avant d'exécuter la connexion à la base
+
 error_reporting(E_ALL);  // Affiche toutes les erreurs PHP
 ini_set('display_errors', 1);  // Active l'affichage des erreurs
 
