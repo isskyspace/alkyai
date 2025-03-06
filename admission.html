@@ -8,37 +8,37 @@
 </head>
 <body>
     <h2>Formulaire de test</h2>
-    <form id="admissionForm">
-        <input type="text" id="prenom" name="prenom" placeholder="Prénom" required><br>
-        <input type="text" id="nom" name="nom" placeholder="Nom" required><br>
-        <input type="email" id="email" name="email" placeholder="Email" required><br>
-        <input type="password" id="codemail" name="codemail" placeholder="Mot de passe" required><br>
-        <input type="text" id="date_naissance" name="date_naissance" placeholder="Date de Naissance" required><br>
-        <input type="text" id="profession" name="profession" placeholder="Profession" required><br>
+    <form id="admissionForm" method="POST">
+        <input type="text" name="prenom" placeholder="Prénom" required><br>
+        <input type="text" name="nom" placeholder="Nom" required><br>
+        <input type="email" name="email" placeholder="Email" required><br>
+        <input type="password" name="codemail" placeholder="Mot de passe" required><br>
+        <input type="text" name="date_naissance" placeholder="Date de Naissance" required><br>
+        <input type="text" name="profession" placeholder="Profession" required><br>
         <button type="submit">Envoyer</button>
     </form>
 
     <script>
-        document.getElementById('admissionForm').addEventListener('submit', function(event) {
-            event.preventDefault();  // Empêche le formulaire de se soumettre normalement
+        document.getElementById("admissionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-            let formData = new FormData(this); // Récupère les données du formulaire
-
-            // Envoie les données du formulaire via POST à l'URL PHP
+            var formData = new FormData(this);
+            
             fetch('https://alkyai.fr/admission.php', {
                 method: 'POST',
-                body: formData
+                body: formData,
             })
-            .then(response => response.json()) // On s'attend à une réponse JSON du serveur
+            .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    alert('Inscription réussie!');
+                    alert(data.message);
                 } else {
-                    alert('Erreur: ' + data.message);
+                    alert(data.message);
                 }
             })
             .catch(error => {
-                console.error('Erreur lors de la requête:', error);
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue.');
             });
         });
     </script>
