@@ -24,6 +24,7 @@
 
             let formData = new FormData(this); // Récupère les données du formulaire
 
+            // Envoie les données du formulaire via POST à l'URL PHP
             fetch('https://alkyai.fr/admission.php', {
                 method: 'POST',
                 body: formData
