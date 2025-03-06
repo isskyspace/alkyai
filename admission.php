@@ -1,12 +1,3 @@
-header("Access-Control-Allow-Origin: *"); // Accepte les requêtes de partout
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS"); // Autorise POST et GET
-header("Access-Control-Allow-Headers: Content-Type"); // Accepte le JSON et autres contenus
-
-// Si c'est une requête OPTIONS (pré-vérification CORS), on arrête ici
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    http_response_code(200);
-    exit;
-}
 
 
 <?php
