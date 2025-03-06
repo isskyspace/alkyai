@@ -48,7 +48,7 @@ if (!$email) {
 }
 
 // Insérer dans la base de données
-$sql = "INSERT INTO users (prenom, nom, email, codemail, date_naissance, profession) VALUES (?, ?, ?, ?, ?, ?)";
+$sql = "INSERT INTO users1 (prenom, nom, email, codemail, date_naissance, profession) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($sql);
 if ($stmt === false) {
     error_log("Erreur préparation de la requête : " . $conn->error);  // Log de l'erreur de préparation
