@@ -1,10 +1,11 @@
-
-
 <?php
 error_reporting(E_ALL);  // Affiche toutes les erreurs PHP
 ini_set('display_errors', 1);  // Active l'affichage des erreurs
 
-header("Content-Type: application/json");
+// En-têtes CORS : autoriser les requêtes du domaine du frontend
+header("Access-Control-Allow-Origin: https://alkyai.fr"); // Remplacez par l'URL correcte de votre frontend
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
 // Vérification des données POST
 if (!isset($_POST["prenom"], $_POST["nom"], $_POST["email"], $_POST["codemail"], $_POST["date_naissance"], $_POST["profession"])) {
@@ -56,10 +57,6 @@ if ($stmt->execute()) {
 } else {
     echo json_encode(["success" => false, "message" => "Erreur lors de l'inscription : " . $stmt->error]);
 }
-header("Access-Control-Allow-Origin: https://https://alkyai.fr/admission.html"); // Remplacez '*' par l'URL de votre frontend pour plus de sécurité
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-
 
 $stmt->close();
 $conn->close();
