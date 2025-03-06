@@ -10,14 +10,19 @@ if (!isset($_POST["prenom"], $_POST["nom"], $_POST["email"], $_POST["codemail"],
     exit;
 }
 
-// Connexion à la base de données sur Railway
-$host = "mysql-4ikf.railway.internal";  // Hôte de la base de données sur Railway
-$user = "root";  // Utilisateur MySQL
-$password = "rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq";  // Mot de passe MySQL
-$dbname = "railway";  // Nom de la base de données sur Railway
+// Connexion à la base de données avec la variable d'environnement Railway
+$database_url = getenv('MYSQL_URL'); // Récupérer l'URL de la base de données depuis l'environnement
+
+// Analyser l'URL de la base de données
+$parsed_url = parse_url($database_url);
+
+$host = $parsed_url['host'];      // L'hôte (ex: mysql-4ikf.railway.internal)
+$user = $parsed_url['user'];      // Utilisateur (ex: root)
+$password = $parsed_url['pass'];  // Mot de passe (ex: rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq)
+$dbname = ltrim($parsed_url['path'], '/'); // Nom de la base de données (ex: railway)
 
 // Connexion à la base de données
-$conn = new mysqli($host, $user, $password, $dbname, 3306);  // Port MySQL = 3306
+$conn = new mysqli($host, $user, $password, $dbname);
 
 // Vérifier la connexion
 if ($conn->connect_error) {
