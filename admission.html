@@ -8,7 +8,7 @@
 </head>
 <body>
     <h2>Formulaire de test</h2>
-    <form id="admissionForm" method="POST">
+    <form action="admission.php" method="POST" id="admissionForm">
         <input type="text" name="prenom" placeholder="Prénom" required><br>
         <input type="text" name="nom" placeholder="Nom" required><br>
         <input type="email" name="email" placeholder="Email" required><br>
@@ -19,14 +19,14 @@
     </form>
 
     <script>
-        document.getElementById("admissionForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+        const form = document.getElementById('admissionForm');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêche le formulaire de soumettre de manière classique
 
-            var formData = new FormData(this);
-            
+            const formData = new FormData(form);
             fetch('https://alkyai.fr/admission.php', {
                 method: 'POST',
-                body: formData,
+                body: formData
             })
             .then(response => response.json())
             .then(data => {
