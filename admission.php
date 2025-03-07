@@ -10,8 +10,8 @@ if (!isset($_POST["prenom"], $_POST["nom"], $_POST["email"], $_POST["codemail"],
     exit;
 }
 
-// Connexion à la base de données via l'URL MySQL depuis la variable d'environnement
-$mysql_url = "mysql://root:rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq@mysql-4ikf.railway.internal:3306/users1";  // Remplacez par votre URL MySQL avec la base de données users1
+// Connexion à la base de données via l'URL MySQL
+$mysql_url = "mysql://root:rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq@mysql-4ikf.railway.internal:3306/railway";
 
 // Extraire les informations de l'URL MySQL
 $parsed_url = parse_url($mysql_url);
@@ -55,11 +55,7 @@ if ($stmt->execute()) {
     echo json_encode(["success" => false, "message" => "Erreur lors de l'inscription : " . $stmt->error]);
 }
 
-// Autoriser les requêtes depuis votre frontend
-header("Access-Control-Allow-Origin: https://alkyai.fr");  // Remplacez par l'URL de votre frontend pour plus de sécurité
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Headers: Content-Type, Authorization");
-
+// Fermer la connexion
 $stmt->close();
 $conn->close();
 ?>
