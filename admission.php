@@ -1,4 +1,14 @@
 <?php
+// Ajouter les en-têtes CORS avant de gérer la requête POST
+header("Access-Control-Allow-Origin: *");  // Ou spécifie un domaine particulier comme https://alkyai.fr
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+// Si c'est une requête OPTIONS, il suffit de répondre avec un code 200 pour les pré-reqêtes CORS
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    exit(0);
+}
+
 error_reporting(E_ALL);  // Affiche toutes les erreurs PHP
 ini_set('display_errors', 1);  // Active l'affichage des erreurs
 
