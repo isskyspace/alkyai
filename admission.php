@@ -21,7 +21,7 @@ if (!isset($_POST["prenom"], $_POST["nom"], $_POST["email"], $_POST["codemail"],
 }
 
 // Connexion à la base de données via l'URL MySQL
-$mysql_url = "mysql://root:rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq@mysql-4ikf.railway.internal:3306/railway";
+$mysql_url = "mysql://root:rNIFDulTqfkvJYuAurNQeVZqtNKUpAwq@shortline.proxy.rlwy.net:49468/railway";
 
 // Extraire les informations de l'URL MySQL
 $parsed_url = parse_url($mysql_url);
