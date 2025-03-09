@@ -3,237 +3,151 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    background-color: #f8f9fa;
+    background-color: #f4f6f9;
     margin: 0;
-}
-
-.payment-container {
-    background: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 380px; /* Largeur par défaut */
-    text-align: center;
-    margin-top: 55px;
-}
-
-.payment-container img {
-    width: 120px;
-    margin-bottom: 20px;
-}
-
-.payment-container h2 {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-input {
     width: 100%;
-    padding: 12px;
-    margin: 12px 0; /* Espacement uniforme entre les inputs */
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    font-size: 14px;
 }
 
-input:focus {
-    outline: none;
-    border-color: #007BFF;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-.payment-container li {
-    list-style: none;
-    background-color: #333;
-    margin-top: 20px; /* Espacement plus important entre l'input et le bouton */
-    padding: 12px 0;
-    border-radius: 5px;
-}
-
-.payment-container li a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-    display: block;
-    text-align: center;
-}
-
-.payment-container li a:hover {
-    background-color: #555;
-}
-
-.connect {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.connect h2 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: #555;
-}
-
-.connect li {
-    list-style: none;
-    margin-top: 10px;
-    border: 2px solid #333;
-    padding: 12px 20px;
-    border-radius: 5px;
-    display: inline-block;
-}
-
-.connect li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
-}
-
-.connect li a:hover {
-    background-color: #f1f1f1;
-    color: #007BFF;
-}
-
-/* Media Queries pour mobile */
-@media only screen and (max-width: 768px) {
-    .payment-container {
-        width: 90%;  /* Réduit la largeur de la boîte de paiement à 90% de l'écran */
-        padding: 25px;  /* Moins de padding pour ajuster l'espace */
-    }
-
-    .payment-container img {
-        width: 100px; /* Ajuste la taille de l'image sur mobile */
-    }
-
-    .payment-container h2 {
-        font-size: 20px;  /* Taille de titre réduite sur mobile */
-        margin-bottom: 15px; /* Moins d'espace autour du titre */
-    }
-
-    input {
-        font-size: 14px;  /* Ajuste la taille de police des champs de saisie */
-        padding: 10px;  /* Moins de padding pour plus de compacité */
-    }
-
-    .payment-container li {
-        font-size: 14px;  /* Réduit la taille du texte pour le bouton */
-        padding: 10px 0;  /* Moins d'espace pour le bouton */
-    }
-
-    .connect h2 {
-        font-size: 16px;  /* Taille de texte réduite sur mobile */
-    }
-
-    .connect li {
-        font-size: 14px; /* Taille de police réduite pour le lien "Se connecter" */
-        padding: 10px 15px; /* Ajuste l'espace intérieur */
-    }
-
-    .connect li a {
-        font-size: 14px; /* Taille de texte réduite pour le lien */
-    }
-}
-
-/* Media Queries pour les petits écrans (téléphones plus petits) */
-@media only screen and (max-width: 480px) {
-    .payment-container {
-        width: 95%;  /* Utilise encore plus d'espace sur les petits écrans */
-        padding: 20px;  /* Réduit encore plus le padding */
-    }
-
-    .payment-container img {
-        width: 80px; /* Réduit la taille de l'image sur les petits écrans */
-    }
-
-    .payment-container h2 {
-        font-size: 18px;  /* Réduit la taille du titre */
-        margin-bottom: 12px;  /* Réduit l'espacement sous le titre */
-    }
-
-    input {
-        font-size: 12px;  /* Réduit la taille du texte dans les champs de saisie */
-        padding: 8px;  /* Réduit le padding des champs de saisie */
-    }
-
-    .payment-container li {
-        font-size: 14px;  /* Taille de texte réduite sur petits écrans */
-        padding: 8px 0;  /* Moins de padding sur les boutons */
-    }
-
-    .connect h2 {
-        font-size: 14px;  /* Taille réduite pour le texte de connexion */
-    }
-
-    .connect li {
-        font-size: 12px;  /* Plus petit pour le lien "Se connecter" */
-        padding: 8px 12px;  /* Réduit le padding du lien */
-    }
-
-    .connect li a {
-        font-size: 12px;  /* Taille de texte réduite pour le lien */
-    }
-}
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f9fa;
-    margin: 0;
-}
 .payment-container {
     background: #fff;
-    padding: 40px;
+    padding: 35px;
     border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 380px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
     text-align: center;
     margin-top: 55px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease;
 }
+
 .payment-container:hover {
-    transform: scale(1.05);
+    transform: translateY(-5px);
 }
+
 .payment-container img {
     width: 120px;
     margin-bottom: 20px;
+    margin-left: 5px;
 }
-.payment-container h2 {
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 20px;
+
+h2 {
+    font-size: 24px;
     color: #333;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
+
 input {
     width: 100%;
     padding: 12px;
-    margin: 12px 0;
-    border: 1px solid #ddd;
+    margin: 10px 0;
+    border: 1px solid #ccc;
     border-radius: 20px;
     font-size: 14px;
-    transition: all 0.3s;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
 }
+
 input:focus {
+    border-color: #000000;
     outline: none;
-    border-color: #007BFF;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-    transform: scale(1.05);
 }
-.admit-button {
-    display: block;
-    text-decoration: none;
-    background-color: #333;
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000;
     color: #fff;
     font-size: 16px;
-    padding: 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #000000;
+}
+
+.no-account {
     margin-top: 20px;
 }
-.admit-button:hover {
-    background-color: #555;
-    transform: scale(1.1);
+
+.no-account p {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.connexion-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #000000; /* Couleur du bouton "Se connecter" */
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.connexion-btn:hover {
+    background-color: #000000; /* Couleur au survol */
+}
+h2 li {
+    list-style: none;
+}
+/* Adaptations pour les écrans mobiles */
+@media (max-width: 768px) {
+    .payment-container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 18px;
+    }
+
+    .payment-container img {
+        width: 100px;
+    }
+}
+
+/* Adaptations pour les petits écrans mobiles */
+@media (max-width: 480px) {
+    .payment-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    input {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 16px;
+    }
+
+    .payment-container img {
+        width: 80px;
+    }
 }
