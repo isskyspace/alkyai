@@ -40,6 +40,17 @@ nav {
     justify-content: center;
     flex-grow: 1;
 }
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre le logo et le texte */
+}
+
+header .logo img {
+    height: 30px; /* Ajuste selon la taille désirée */
+    width: auto; /* Garde les proportions */
+    border-radius: 15px;
+}
 
 nav ul {
     list-style: none;

@@ -32,6 +32,17 @@ header .logo h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     white-space: nowrap;
 }
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre le logo et le texte */
+}
+
+header .logo img {
+    height: 30px; /* Ajuste selon la taille désirée */
+    width: auto; /* Garde les proportions */
+    border-radius: 15px;
+}
 
 /* Centrer le menu et bien espacer */
 nav {
