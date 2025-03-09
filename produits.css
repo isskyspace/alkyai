@@ -56,199 +56,56 @@ nav ul li a {
     padding: 8px;
 }
 
-/* Ajustement pour mobile */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 8px 3%;
-        flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
-    }
-
-    header .logo h1 {
-        font-size: 1.4rem; /* Réduction de la taille */
-    }
-
-    nav ul {
-        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
-    }
-
-    nav ul li a {
-        font-size: 12px; /* Texte plus petit pour ne pas couper */
-        padding: 5px;
-    }
-
-    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
-    .logo, nav {
-        flex-basis: 100%;
-        text-align: center; /* Centrer le contenu sur mobile */
-    }
-
-    /* Modification pour "Mon compte" et "Adhérer" sur mobile */
-    nav ul {
-        flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
-        justify-content: space-around; /* Répartition équitable des éléments */
-    }
-
-    nav ul li {
-        flex: 1;
-        text-align: center; /* Assure l'alignement des éléments */
-    }
-}
-
-/* Section Investir */
-.products {
-    padding: 40px 20px;
-    background-color: #ffffff;
-    margin-top: 20px;
-}
-
-.product h2 {
-    font-size: 2rem;
-    color: #333;
+/* Conteneur principal */
+.container {
     text-align: center;
-    margin-bottom: 20px;
-}
-
-#payment-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #f4f4f4;
+    margin-top: 100px;
     padding: 20px;
-    border-radius: 8px;
+    max-width: 800px;
 }
 
-#payment-form label {
-    font-size: 1.2rem;
-    color: #444;
-    margin-bottom: 10px;
-    display: block;
+.container img {
+    width: 60%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#payment-form select, #payment-form button {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1.1rem;
-}
-
-#payment-form button {
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: background-color 0.3s ease;
-}
-
-#payment-form button:hover {
-    background-color: #444;
-}
-
-/* Description AlkyBin */
-.alkybin-description {
-    padding: 40px 20px;
-    background-color: #ffffff;
-    margin-top: 40px; /* Espacement augmenté pour ne pas être trop près du haut */
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.present {
-    padding: 40px 20px;
-    background-color: #ffffff;
-    text-align: center;
-}
-#payment-form input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    text-align: center;
-}
-
-
-.present h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.present p {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 900px;
-    margin: 0 auto;
-    line-height: 1.8;
-}
-
-.alkybin-description h3, .alkybin-description h4 {
+.container h2, .container h3 {
     font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
-.alkybin-description p {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 20px;
+.container p, .container ul {
+    font-size: 1.4rem;
     line-height: 1.8;
+    margin-bottom: 15px;
 }
 
-.alkybin-description ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-.alkybin-description ul li {
-    margin-bottom: 10px;
-}
-
-/* Footer */
+/* Pied de page */
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
+    padding: 15px 0;
+    margin-top: 30px;
     width: 100%;
 }
 
-/* Adaptation mobile */
+/* Responsive */
 @media screen and (max-width: 768px) {
-    .products {
-        grid-template-columns: 1fr 1fr;
-        padding: 15px;
+    nav ul {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
-
-    .product {
-        max-width: 100%;
+    .container img {
+        width: 80%;
     }
-}
-
-@media screen and (max-width: 480px) {
-    .products {
-        grid-template-columns: 1fr;
-        padding: 10px;
+    .container h2, .container h3 {
+        font-size: 1.8rem;
     }
-
-    .product {
-        padding: 15px;
-    }
-
-    .alkybin-description h3, .alkybin-description h4 {
-        font-size: 1.6rem;
-    }
-
-    .alkybin-description p {
-        font-size: 1rem;
-    }
-
-    .alkybin-description ul {
-        font-size: 1rem;
+    .container p, .container ul {
+        font-size: 1.2rem;
     }
 }
