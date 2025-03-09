@@ -61,7 +61,12 @@ nav ul li a {
     text-align: center;
     margin-top: 100px;
     padding: 20px;
-    max-width: 800px;
+
+    max-width: 1000px;  /* Ajuste la largeur maximale */
+    margin: 0 auto;  /* Centre le conteneur horizontalement */
+    padding: 0 20px;  /* Ajoute un peu d'espace sur les côtés */
+}
+
 }
 
 .container img {
