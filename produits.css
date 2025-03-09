@@ -67,7 +67,7 @@ nav ul li a {
     padding: 0 20px;  /* Ajoute un peu d'espace sur les côtés */
 }
 
-}
+
 
 .container img {
     width: 60%;
@@ -79,6 +79,7 @@ nav ul li a {
 .container h2, .container h3 {
     font-size: 2rem;
     margin-bottom: 15px;
+    margin-top: 20px;
 }
 
 .container p, .container ul {
@@ -98,7 +99,7 @@ footer {
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
+    @media screen and (max-width: 768px) {
     nav ul {
         gap: 20px;
         flex-wrap: wrap;
@@ -151,5 +152,5 @@ footer {
     }
 
 
-
 }
+    }
