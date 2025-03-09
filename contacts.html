@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="contacts.css">
+    <link rel="icon" type="image/png" href="2756861-icone-de-recyclage-une-fleche-qui-tourne-sans-fin-reutiliser-concept-recycle-vectoriel.jpg">
     <title>Contacts Alky AI</title>
 </head>
 <body>
@@ -46,5 +47,37 @@
     <footer>
         <p>&copy; 2025 Alky AI. Tous droits réservés.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            emailjs.init("7uI9LfoyE1s6bVMhd"); // Remplace par ton User ID EmailJS
+    
+            document.querySelector(".contact-form").addEventListener("submit", function (event) {
+                event.preventDefault(); // Empêche le rechargement de la page
+    
+                // Récupérer les valeurs du formulaire
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+                let message = document.getElementById("message").value;
+    
+                // Envoyer les données avec EmailJS
+                emailjs.send("service_cidormd", "template_e41q8qd", {
+                    user_name: name,
+                    user_email: email,
+                    message: message
+                }).then(
+                    function(response) {
+                        alert("Votre message a bien été envoyé !");
+                        document.querySelector(".contact-form").reset(); // Réinitialiser le formulaire
+                    },
+                    function(error) {
+                        alert("Erreur lors de l'envoi. Réessayez plus tard.");
+                        console.log("Erreur:", error);
+                    }
+                );
+            });
+        });
+    </script>
 </body>
 </html>
