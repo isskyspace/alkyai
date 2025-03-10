@@ -54,8 +54,8 @@ app.post('/create-checkout-session', async (req, res) => {
                 quantity: 1,
             }],
             mode: 'payment',
-            success_url: 'https://ton-site.com/success.html',  // Remplace par ton URL de succès
-            cancel_url: 'https://ton-site.com/cancel.html',   // Remplace par ton URL d'annulation
+            success_url: 'https://alkyai.fr/success.html',  // Remplace par ton URL de succès
+            cancel_url: 'https://alkyai.fr/cancel.html',   // Remplace par ton URL d'annulation
         });
 
         res.json({ id: session.id });
