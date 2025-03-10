@@ -42,10 +42,11 @@ header {
     margin-top: 50px;
 }
 
-/* IMAGE CROIX ROUGE */
+/* IMAGE CROIX verte */
 .icon {
     width: 100px;
     margin-bottom: 25px;
+    margin-left: 10px;
 }
 
 /* TITRE */
