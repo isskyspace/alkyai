@@ -44,12 +44,13 @@ header .logo img {
     border-radius: 15px;
 }
 
+
+
 /* Centrer le menu et bien espacer */
 nav {
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    list-style: none;
 }
 
 nav ul {
@@ -66,7 +67,6 @@ nav ul li a {
     text-decoration: none;
     font-size: 15px; /* Taille correcte */
     padding: 8px;
-    list-style: none;
 }
 
 /* Conteneur principal */
