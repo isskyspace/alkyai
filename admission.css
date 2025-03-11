@@ -1,153 +1,141 @@
+/* Reset des styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f4f6f9;
-    margin: 0;
-    width: 100%;
-}
-
-.payment-container {
-    background: #fff;
-    padding: 35px;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    margin-top: 55px;
-    transition: transform 0.3s ease;
-}
-
-.payment-container:hover {
-    transform: translateY(-5px);
-}
-
-.payment-container img {
-    width: 120px;
-    margin-bottom: 20px;
-    margin-left: 5px;
-}
-
-h2 {
-    font-size: 24px;
+    line-height: 1.8;
+    background-color: #f4f4f4;
     color: #333;
-    margin-bottom: 20px;
-    font-weight: 600;
-}
-
-input {
     width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 14px;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease;
 }
 
-input:focus {
-    border-color: #000000;
-    outline: none;
-}
-
-button {
-    width: 100%;
-    padding: 12px;
-    background-color: #000000;
+/* En-tête en ligne */
+header {
+    background-color: #333;
     color: #fff;
-    font-size: 16px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #000000;
-}
-
-.no-account {
-    margin-top: 20px;
-}
-
-.no-account p {
-    font-size: 14px;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.connexion-btn {
+    display: flex;
+    justify-content: space-between; /* Aligne "AlkyAI" à gauche et le menu à droite */
+    align-items: center;
+    padding: 10px 5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-    padding: 12px;
-    background-color: #000000; /* Couleur du bouton "Se connecter" */
-    color: white;
-    font-size: 16px;
-    border: none;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    flex-wrap: wrap; /* Modifié pour permettre l'ajustement sur mobile */
 }
 
-.connexion-btn:hover {
-    background-color: #000000; /* Couleur au survol */
+/* Style du logo AlkyAI */
+header .logo h1 {
+    font-size: 1.6rem; /* Taille ajustée */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    white-space: nowrap;
 }
-h2 li {
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre le logo et le texte */
+}
+
+header .logo img {
+    height: 30px; /* Ajuste selon la taille désirée */
+    width: auto; /* Garde les proportions */
+    border-radius: 15px;
+}
+
+/* Centrer le menu et bien espacer */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+nav ul {
     list-style: none;
+    display: flex;
+    gap: 80px; /* Espacement équilibré */
+    padding: 0;
+    flex-wrap: nowrap; /* Garde tout sur une seule ligne */
 }
-/* Adaptations pour les écrans mobiles */
-@media (max-width: 768px) {
-    .payment-container {
+
+/* Style des liens de navigation */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px; /* Taille correcte */
+    padding: 8px;
+}
+
+/* Style du formulaire d'admission */
+.admission-form {
+    background-color: #fff;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.admission-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.admission-form label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.admission-form input, 
+.admission-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.admission-form textarea {
+    resize: vertical;
+}
+
+.admission-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.admission-form button:hover {
+    background-color: #555;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .admission-form {
         width: 90%;
-        padding: 25px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-    input {
-        padding: 10px;
-        font-size: 14px;
-    }
-
-    button {
-        padding: 14px;
-        font-size: 18px;
-    }
-
-    .payment-container img {
-        width: 100px;
     }
 }
-
-/* Adaptations pour les petits écrans mobiles */
-@media (max-width: 480px) {
-    .payment-container {
-        width: 90%;
-        padding: 20px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    input {
-        padding: 10px;
-        font-size: 12px;
-    }
-
-    button {
-        padding: 15px;
-        font-size: 16px;
-    }
-
-    .payment-container img {
-        width: 80px;
-    }
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 20px;
+    width: 100%;
 }
+
+
+/*j'ai ce code : <!DOCTYPE html> <html lang="fr"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Admission au projet</title> <link rel="stylesheet" href="admission.css"> <link rel="icon" type="image/png" href="favicon_rounded.png"> </head> <body> <header> <div class="logo"> <img src="2756861-icone-de-recyclage-une-fleche-qui-tourne-sans-fin-reutiliser-concept-recycle-vectoriel.jpg" alt="Logo Alky AI"> <h1>Alky AI</h1> </div> <nav> <ul> <li><a href="index.html">Accueil</a></li> <li><a href="produits.html">Produits</a></li> <li><a href="contacts.html">Contacts</a></li> <li><a href="admission.html">Adhérer</a></li> </ul> </nav> </header> <main> <section class="admission-form"> <h2>Formulaire d'adhésion</h2> <form action="#" method="post"> <label for="nom">Nom :</label> <input type="text" id="nom" name="nom" requis> <label for="prenom">Prénom :</label> <input type="text" id="prenom" name="prenom" requis> <label for="email">Adresse Email :</label> <input type="email" id="email" name="email" requis> <label for="tel">Numéro de téléphone :</label> <input type="tel" id="tel" name="tel" obligatoire> <label for="adresse">Adresse :</label> <input type="text" id="adresse" name="adresse" requis> <label for="apport">Ce que vous pouvez apporter au projet :</label> <textarea id="apport" name="apport" rows="4" requis></textarea> <button type="submit">Envoyer</button> </form> </section> </main> <footer> <p>© Magasin ALKY AI 2025.Tous droits réservés.</p> </footer> </body> </html> je veux que quand les gens cliquent sur envoyer ca met sur une base de données et cela depuis n'importe quel serveur depuis tout les pc  */
