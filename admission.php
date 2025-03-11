@@ -1,16 +1,22 @@
 <?php
-// Paramètres de connexion à la base de données (à remplacer par les infos de Render)
-$servername = "votre_db_url_render";  // L'URL de votre base de données (fournie par Render)
-$username = "votre_utilisateur";     // Utilisateur MySQL fourni par Render
-$password = "votre_mot_de_passe";    // Mot de passe MySQL fourni par Render
-$dbname = "alky_ai";                 // Nom de la base de données
+// Informations de connexion à la base de données PostgreSQL
+$host = "dpg-cv8aij8gph6c73brekk0-a";   // Remplacez par l'hôte de votre base de données PostgreSQL sur Render
+$dbname = "AlkyAI";     // Nom de votre base de données
+$username = "root";  // Nom d'utilisateur PostgreSQL
+$password = "EbbN7NlSbZnnfYk9whvIn8smLIXCQoj8"; // Mot de passe PostgreSQL
+$port = "5432";         // Port par défaut pour PostgreSQL
 
 // Création de la connexion
-$conn = new mysqli($servername, $username, $password, $dbname);
+$dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$username;password=$password";
 
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("Échec de la connexion : " . $conn->connect_error);
+try {
+    $conn = new PDO($dsn);
+    // Définir le mode d'erreur PDO pour les exceptions
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connexion réussie !";
+} catch (PDOException $e) {
+    echo "Erreur de connexion : " . $e->getMessage();
+    die();
 }
 
 // Vérification si le formulaire a été soumis
@@ -23,19 +29,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $adresse = $_POST['adresse'];
     $apport = $_POST['apport'];
 
-    // Préparation et exécution de la requête SQL pour insérer les données
-    $stmt = $conn->prepare("INSERT INTO adhesion (nom, prenom, email, tel, adresse, apport) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssss", $nom, $prenom, $email, $tel, $adresse, $apport);
+    // Préparation de la requête SQL pour insérer les données dans la table
+    $query = "INSERT INTO adhesion (nom, prenom, email, tel, adresse, apport) 
+              VALUES (:nom, :prenom, :email, :tel, :adresse, :apport)";
 
-    // Exécution de la requête
+    $stmt = $conn->prepare($query);
+    // Lier les paramètres pour éviter les injections SQL
+    $stmt->bindParam(':nom', $nom);
+    $stmt->bindParam(':prenom', $prenom);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':tel', $tel);
+    $stmt->bindParam(':adresse', $adresse);
+    $stmt->bindParam(':apport', $apport);
+
+    // Exécuter la requête
     if ($stmt->execute()) {
-        echo "Données enregistrées avec succès!";
+        echo "Données enregistrées avec succès !";
     } else {
-        echo "Erreur : " . $stmt->error;
+        echo "Erreur : Les données n'ont pas pu être enregistrées.";
     }
-
-    // Fermeture de la requête et de la connexion
-    $stmt->close();
-    $conn->close();
 }
 ?>
