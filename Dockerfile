@@ -6,3 +6,4 @@ COPY . /var/www/html/
 
 # Exposer le port 80 pour permettre l'accès à l'application
 EXPOSE 80
+RUN apt-get update && apt-get install -y php-pgsql
