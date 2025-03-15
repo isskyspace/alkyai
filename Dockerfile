@@ -2,11 +2,9 @@
 FROM php:7.4-apache
 
 # Mettre à jour les paquets et installer les dépendances nécessaires
-RUN apt-get update && apt-get install -y \
-    libpq-dev \          # Bibliothèque nécessaire pour PostgreSQL
-    && docker-php-ext-install pdo pdo_pgsql pgsql \  # Installer les extensions PHP pour PostgreSQL
-    && apt-get clean \   # Nettoyer le cache des paquets pour réduire la taille de l'image
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y libpq-dev
+RUN docker-php-ext-install pdo pdo_pgsql pgsql
+RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Activer le module Apache rewrite (si nécessaire)
 RUN a2enmod rewrite
