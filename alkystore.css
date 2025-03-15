@@ -78,6 +78,7 @@ nav ul li a {
 
     header .logo h1 {
         font-size: 1.4rem; /* Réduction de la taille */
+        text-align: center;
     }
 
     nav ul {
