@@ -75,10 +75,16 @@ nav ul li a {
         padding: 8px 3%;
         flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
     }
-
+    .logo {
+        display: flex;
+        justify-content: center; /* Centre le logo */
+        align-items: center; /* Assure l'alignement vertical */
+        width: 100%; /* Prend toute la largeur */
+        margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
+    }
     header .logo h1 {
-        font-size: 1.4rem; /* Réduction de la taille */
-        text-align: center;
+        font-size: 1.4rem;
+        text-align: center; /* Réduction de la taille */
     }
 
     nav ul {
@@ -266,3 +272,6 @@ footer {
         font-size: 1rem;
     }
 }
+
+
+
