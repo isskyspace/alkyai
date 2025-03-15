@@ -8,8 +8,14 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \   # Nettoyer le cache des paquets pour réduire la taille de l'image
     && rm -rf /var/lib/apt/lists/*
 
+# Activer le module Apache rewrite (si nécessaire)
+RUN a2enmod rewrite
+
 # Copier le code de votre application dans le répertoire approprié
 COPY . /var/www/html/
+
+# Définir les permissions pour le répertoire Apache
+RUN chown -R www-data:www-data /var/www/html
 
 # Exposer le port 80 pour permettre l'accès à l'application
 EXPOSE 80
