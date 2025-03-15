@@ -1,7 +1,7 @@
 <?php
 // Informations de connexion à la base de données PostgreSQL
 $host = "dpg-cv8aij8gph6c73brekk0-a"; // Remplacez par l'hôte de votre base de données PostgreSQL sur Render
-$dbname = "AlkyAI"; // Nom de votre base de données
+$dbname = "alky_ai"; // Nom de votre base de données
 $username = "root"; // Nom d'utilisateur PostgreSQL
 $password = "EbbN7NlSbZnnfYk9whvIn8smLIXCQoj8"; // Mot de passe PostgreSQL
 $port = "5432"; // Port par défaut pour PostgreSQL
