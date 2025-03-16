@@ -1,17 +1,17 @@
 <?php
-// Informations de connexion à la base de données PostgreSQL
-$host = "dpg-cv8aij8gph6c73brekk0-a"; // Remplacez par l'hôte de votre base de données PostgreSQL sur Render
-$dbname = "alky_ai"; // Nom de votre base de données
-$username = "root"; // Nom d'utilisateur PostgreSQL
-$password = "EbbN7NlSbZnnfYk9whvIn8smLIXCQoj8"; // Mot de passe PostgreSQL
-$port = "5432"; // Port par défaut pour PostgreSQL
+// Informations de connexion à la base de données
+$host = "localhost"; // Ou l'adresse de votre serveur PostgreSQL
+$dbname = "AlkyAI";
+$username = "root";
+$password = "EbbN7NlSbZnnfYk9whvIn8smLIXCQoj8";
+$port = "5432";
 
-// Création de la connexion
+// Chaîne de connexion
 $dsn = "pgsql:host=$host;port=$port;dbname=$dbname;user=$username;password=$password";
 
 try {
+    // Connexion à la base de données
     $conn = new PDO($dsn);
-    // Définit le mode d'erreur PDO pour les exceptions
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     echo "Connexion réussie !";
 } catch (PDOException $e) {
