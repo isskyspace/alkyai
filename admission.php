@@ -2,8 +2,8 @@
 // Informations de connexion à la base de données
 $host = "localhost"; // Ou l'adresse de votre serveur PostgreSQL
 $dbname = "AlkyAI";
-$username = "root";
-$password = "EbbN7NlSbZnnfYk9whvIn8smLIXCQoj8";
+$username = "postgres";
+$password = "Kylian25#";
 $port = "5432";
 
 // Chaîne de connexion
