@@ -32,6 +32,8 @@
             <p class="price">
                 Prix de la formation : <strong>90 €</strong>
             </p>
+            <!-- Ajout d'un message d'erreur -->
+            <div id="error-message" style="display: none; color: red; margin-bottom: 20px;"></div>
             <form id="payment-form" method="POST">
                 <div class="form-group">
                     <label for="name">Nom complet</label>
@@ -56,6 +58,7 @@
         </div>
     </footer>
 
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
         const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq'); // Clé publique Stripe
         const errorMessage = document.getElementById('error-message');
