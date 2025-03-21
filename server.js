@@ -65,6 +65,6 @@ app.post('/create-checkout-session', async (req, res) => {
 });
 
 // Démarre le serveur
-const PORT = process.env.PORT || 4242; // Utilise le port spécifié dans l'environnement ou 4242
+const PORT = process.env.PORT || 10000; // Utilise le port spécifié dans l'environnement ou 4242
 app.listen(PORT, () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
 
