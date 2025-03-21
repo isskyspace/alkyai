@@ -64,7 +64,45 @@ app.post('/create-checkout-session', async (req, res) => {
     }
 });
 
-// Démarre le serveur
-const PORT = process.env.PORT || 4242; // Utilise le port spécifié dans l'environnement ou 4242
-app.listen(PORT, () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
+// Route pour créer la session de paiement Stripe pour la formation
+app.post('/create-checkout-session-formation', async (req, res) => {
+    try {
+        const { name, email, phone } = req.body;
 
+        // Créer la session de paiement Stripe
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: [{
+                price_data: {
+                    currency: 'eur',
+                    product_data: { 
+                        name: 'Formation IA et Business',
+                        description: 'Formation complète sur l\'IA et le business',
+                    },
+                    unit_amount: 9000, // 90 € en centimes
+                },
+                quantity: 1,
+            }],
+            mode: 'payment',
+            success_url: 'https://alkyai.fr/success-formation.html',
+            cancel_url: 'https://alkyai.fr/cancel-formation.html',
+            metadata: { name, email, phone }
+        });
+
+        // Envoyer un e-mail de confirmation
+        await transporter.sendMail({
+            from: '"Alky AI" <no-reply@alkyai.fr>',
+            to: email,
+            subject: "Confirmation de votre achat de formation",
+            text: `Bonjour ${name},\n\nMerci pour votre achat de la formation IA et Business. Votre paiement a bien été reçu.\n\nCordialement,\nL'équipe Alky AI`
+        });
+
+        res.json({ id: session.id });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// Démarre le serveur
+const PORT = process.env.PORT || 10000; // Utilise le port spécifié dans l'environnement ou 10000
+app.listen(PORT, () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
