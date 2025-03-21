@@ -12,7 +12,23 @@ body {
     color: #333;
     width: 100%;
 }
-
+.payment-form p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: red; /* Texte en rouge */
+}
+.payment-form .price {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    color: black; /* Texte en noir */
+}
+.payment-form .container {
+    max-width: 600px;
+    width: 100%;
+    border: 1px solid #000; /* Bordure noire de 1px */
+    padding: 20px; /* Ajoute un peu de padding pour que le contenu ne touche pas la bordure */
+    border-radius: 10px; /* Optionnel : pour arrondir les coins */
+}
 /* En-tête en ligne */
 header {
     background-color: #333;
