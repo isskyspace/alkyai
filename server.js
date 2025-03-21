@@ -59,7 +59,27 @@ app.post('/create-checkout-session-formation', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+// Route pour créer la session de paiement Stripe pour la formation
+app.post('/create-checkout-session-formation', async (req, res) => {
+    try {
+        // Créez une session de paiement Stripe
+        const session = await stripe.checkout.sessions.create({
+            payment_method_types: ['card'],
+            line_items: [{
+                price: 'price_1R5A6jLiKOMWxvxfVbUtbHDE', // ID de prix pour 90 €
+                quantity: 1,
+            }],
+            mode: 'payment',
+            success_url: 'https://alkyai.fr/success-formation.html', // URL de succès
+            cancel_url: 'https://alkyai.fr/cancel-formation.html',  // URL d'annulation
+        });
 
+        // Renvoyez l'ID de la session au client
+        res.json({ id: session.id });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 // Démarre le serveur
 const PORT = process.env.PORT || 10000; // Utilise le port spécifié dans l'environnement ou 10000
 app.listen(PORT, () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
