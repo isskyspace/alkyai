@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="alkystore.css">
     <title>Alky AI</title>
     <script src="https://js.stripe.com/v3/"></script>
-    <link rel="icon" type="image/png" href="favicon_rounded.png">
+    <link rel="icon" type="image/png" href="alkyai_logo_rounded.png">
 
     
         <!-- Vous pouvez ajouter d'autres éléments dans votre header ici (menu, etc.) -->
@@ -24,6 +24,7 @@
                 <li><a href="produits.html">Produits</a></li>
                 <li><a href="contacts.html">Contacts</a></li>
                 <li><a href="formation.html">Ma Formation</a></li>
+                
                 
             </ul>
         </nav>
@@ -126,7 +127,7 @@ document.getElementById('checkout-button').addEventListener('click', async () =>
     }
 
     try {
-        const response = await fetch('https://alkyai.onrender.com/create-checkout-session', {
+        const response = await fetch('https://alkyai.onrender.com', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ amount })
