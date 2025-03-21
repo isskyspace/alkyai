@@ -69,142 +69,83 @@ nav ul li a {
     list-style: none;
 }
 
-/* Section de formulaire de paiement */
+/* Section de paiement */
 .payment-form {
-    padding: 60px 20px;
+    flex: 1; /* Prend l'espace disponible */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
     background-color: #fff;
     text-align: center;
+}
+
+.payment-form .container {
     max-width: 600px;
-    margin: 40px auto;
+    width: 100%;
+}
+
+.payment-form .formation-image {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
 }
 
 .payment-form h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #333;
 }
 
 .payment-form p {
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    color: #666;
-}
-
-.payment-form .form-group {
+    font-size: 1.2rem;
     margin-bottom: 20px;
-    text-align: left;
 }
 
-.payment-form label {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 8px;
-    color: #333;
-    font-weight: bold;
-}
-
-.payment-form input {
-    width: 100%;
-    padding: 12px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 1rem;
-    color: #333;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s ease;
-}
-
-.payment-form input:focus {
-    border-color: #000000;
-    outline: none;
-    background-color: #fff;
+.payment-form .price {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
 }
 
 .payment-form .cta-button {
     background-color: #000000;
     color: #fff;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: 5px;
-    border: none;
+    text-decoration: none;
     font-size: 1.1rem;
+    border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    margin-top: 20px;
+}
+/* Style de base du bouton */
+#checkout-button {
+    background-color: #000000; /* Fond noir */
+    color: #ffffff; /* Texte blanc */
+    padding: 15px 30px; /* Taille du bouton (plus gros) */
+    font-size: 18px; /* Taille du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur en forme de main */
+    transition: all 0.3s ease; /* Animation fluide */
 }
 
+/* Animation au survol */
+#checkout-button:hover {
+    background-color: #333333; /* Fond légèrement plus clair */
+    transform: scale(1.05); /* Grossit légèrement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre portée */
+}
+
+/* Animation au clic */
+#checkout-button:active {
+    transform: scale(0.95); /* Rétrécit légèrement */
+}
 .payment-form .cta-button:hover {
-    background-color: #000000;
+    background-color: #444;
 }
 
-/* Message d'erreur (optionnel) */
-.payment-form .error-message {
-    color: #ff0000;
-    font-size: 0.9rem;
-    margin-top: 10px;
-    display: none; /* Caché par défaut */
-}
-/* Styles pour le prix de la formation */
-.payment-form .price {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: bold;
-}
-
-.payment-form .price strong {
-    color: #000000; /* Couleur noire pour le prix */
-    font-size: 1.4rem;
-}
-
-/* Styles pour les écrans mobiles */
-@media (max-width: 768px) {
-    header {
-        padding: 10px 3%;
-    }
-
-    header .logo h1 {
-        font-size: 1.4rem;
-    }
-
-    nav ul {
-        gap: 20px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
-    .payment-form {
-        padding: 40px 15px;
-    }
-
-    .payment-form h2 {
-        font-size: 1.8rem;
-    }
-
-    .payment-form p {
-        font-size: 1rem;
-    }
-
-    .payment-form input {
-        padding: 10px;
-    }
-
-    .payment-form .cta-button {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-}
-
-.founders {
-    margin-top: 20px;
-    font-style: italic;
-    color: #777;
-}
-
+/* Pied de page */
 footer {
     background-color: #333;
     color: #fff;
