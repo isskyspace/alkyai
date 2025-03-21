@@ -36,7 +36,7 @@
                 Prix de la formation : <strong>90 €</strong>
             </p>
             <!-- Bouton pour déclencher le paiement -->
-            <button id="checkout-button" class="cta-button">Payer 90 € via Stripe</button>
+            <button type="button" id="checkout-button">Payer 90 €</button>
         </div>
     </section>
 
@@ -47,10 +47,13 @@
     </footer>
 
     <!-- Intégration de Stripe.js -->
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
-        const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq'); // Clé publique Stripe
+        // Initialisez Stripe avec votre clé publique
+        const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
         const errorMessage = document.getElementById('error-message');
     
+        // Ajoutez un écouteur d'événement au bouton
         document.getElementById('checkout-button').addEventListener('click', async () => {
             try {
                 // Envoyer une requête pour créer une session de paiement pour la formation
@@ -59,15 +62,16 @@
                     headers: { 'Content-Type': 'application/json' },
                 });
     
+                // Vérifiez si la réponse est OK
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
                 }
     
-                // Récupérer l'ID de la session Stripe
+                // Récupérez l'ID de la session Stripe
                 const session = await response.json();
     
-                // Rediriger vers la page de paiement Stripe
+                // Redirigez vers la page de paiement Stripe
                 const result = await stripe.redirectToCheckout({ sessionId: session.id });
     
                 // Gestion des erreurs de redirection
@@ -76,6 +80,7 @@
                     errorMessage.style.display = 'block';
                 }
             } catch (error) {
+                // Affichez l'erreur
                 errorMessage.textContent = `Erreur : ${error.message}`;
                 errorMessage.style.display = 'block';
                 console.error("Erreur :", error);
