@@ -39,61 +39,27 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Route pour créer la session de paiement Stripe
-app.post('/create-checkout-session', async (req, res) => {
-    try {
-        const { amount } = req.body;
-
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            line_items: [{
-                price_data: {
-                    currency: 'eur',
-                    product_data: { name: 'Don pour AlkyBin' },
-                    unit_amount: Math.round(amount * 100), // Convertit en centimes
-                },
-                quantity: 1,
-            }],
-            mode: 'payment',
-            success_url: 'https://alkyai.fr/success.html',  // Remplace par ton URL de succès
-            cancel_url: 'https://alkyai.fr/cancel.html',   // Remplace par ton URL d'annulation
-        });
-
-        res.json({ id: session.id });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
-
-// Route pour créer la session de paiement Stripe pour la formation
 app.post('/create-checkout-session-formation', async (req, res) => {
     try {
-        const { name, email, phone } = req.body;
-
-        // Créer la session de paiement Stripe
+        // Créez une session de paiement Stripe
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: [{
-                price_data: {
-                    currency: 'eur',
-                    product_data: { 
-                        name: 'Formation IA et Business',
-                        description: 'Formation complète sur l\'IA et le business',
-                    },
-                    unit_amount: 9000, // 90 € en centimes
-                },
+                price: 'price_1R5A6jLiKOMWxvxfVbUtbHDE', // Utilisez votre ID de prix ici
                 quantity: 1,
             }],
             mode: 'payment',
-            success_url: 'https://alkyai.fr/success-formation.html',
-            cancel_url: 'https://alkyai.fr/cancel-formation.html',
-            metadata: { name, email, phone }
+            success_url: 'https://alkyai.fr/success-formation.html', // URL de succès
+            cancel_url: 'https://alkyai.fr/cancel-formation.html',  // URL d'annulation
         });
 
-        // Désactiver temporairement l'envoi d'e-mails
-        console.log("E-mail de confirmation désactivé pour le moment.");
-
+        // Renvoyez l'ID de la session au client
         res.json({ id: session.id });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
+
+// Démarre le serveur
+const PORT = process.env.PORT || 10000; // Utilise le port spécifié dans l'environnement ou 10000
+app.listen(PORT, () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
