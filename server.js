@@ -39,7 +39,7 @@ app.post("/send-email", async (req, res) => {
 });
 
 // Route pour créer la session de paiement Stripe
-app.post('/create-checkout-session-formation', async (req, res) => {
+app.post('/create-checkout-session', async (req, res) => {
     try {
         // Créez une session de paiement Stripe
         const session = await stripe.checkout.sessions.create({
@@ -62,14 +62,21 @@ app.post('/create-checkout-session-formation', async (req, res) => {
 // Route pour créer la session de paiement Stripe pour la formation
 app.post('/create-checkout-session-formation', async (req, res) => {
     try {
-        // Créez une session de paiement Stripe
+        // Créez une session de paiement Stripe avec un montant fixe
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: [{
-                price: 'price_1R5A6jLiKOMWxvxfVbUtbHDE', // ID de prix pour 90 €
-                quantity: 1,
+                price_data: {
+                    currency: 'eur', // Devise : euros
+                    product_data: {
+                        name: 'Formation IA et Business', // Nom du produit
+                        description: 'Formation complète sur l\'IA et le business', // Description du produit
+                    },
+                    unit_amount: 9000, // Montant en centimes (90 € = 9000 centimes)
+                },
+                quantity: 1, // Quantité
             }],
-            mode: 'payment',
+            mode: 'payment', // Mode de paiement
             success_url: 'https://alkyai.fr/success-formation.html', // URL de succès
             cancel_url: 'https://alkyai.fr/cancel-formation.html',  // URL d'annulation
         });
@@ -77,9 +84,7 @@ app.post('/create-checkout-session-formation', async (req, res) => {
         // Renvoyez l'ID de la session au client
         res.json({ id: session.id });
     } catch (error) {
+        console.error("Erreur lors de la création de la session Stripe :", error); // Log pour les erreurs
         res.status(500).json({ error: error.message });
     }
 });
-// Démarre le serveur
-const PORT = process.env.PORT || 10000; // Utilise le port spécifié dans l'environnement ou 10000
-app.listen(PORT, () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
