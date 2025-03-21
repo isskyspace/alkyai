@@ -55,8 +55,8 @@ app.post('/create-checkout-session', async (req, res) => {
                 price_data: {
                     currency: 'eur', // Devise : euros
                     product_data: {
-                        name: 'Paiement Personnalisé', // Nom du produit
-                        description: 'Paiement personnalisé pour un montant spécifique', // Description du produit
+                        name: 'Don pour AlkyBin', // Nom du produit
+                        description: 'Soutenez le projet AlkyBin', // Description du produit
                     },
                     unit_amount: Math.round(amount * 100), // Montant en centimes
                 },
