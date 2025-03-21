@@ -89,20 +89,11 @@ app.post('/create-checkout-session-formation', async (req, res) => {
             metadata: { name, email, phone }
         });
 
-        // Envoyer un e-mail de confirmation
-        await transporter.sendMail({
-            from: '"Alky AI" <no-reply@alkyai.fr>',
-            to: email,
-            subject: "Confirmation de votre achat de formation",
-            text: `Bonjour ${name},\n\nMerci pour votre achat de la formation IA et Business. Votre paiement a bien été reçu.\n\nCordialement,\nL'équipe Alky AI`
-        });
+        // Désactiver temporairement l'envoi d'e-mails
+        console.log("E-mail de confirmation désactivé pour le moment.");
 
         res.json({ id: session.id });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 });
-
-// Démarre le serveur
-const PORT = process.env.PORT || 10000; // Utilise le port spécifié dans l'environnement ou 10000
-app.listen(PORT, () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
