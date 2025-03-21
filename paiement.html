@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement de la Formation</title>
+    <link rel="stylesheet" href="paiement.css">
+    <link rel="icon" type="image/png" href="alkyai_logo_rounded.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="alkyai_logo_rounded.png" alt="Logo Alky AI">
+            <h1>Alky AI</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="formation.html">Ma Formation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="payment-form">
+        <div class="container">
+            <h2>Finalisez votre Achat</h2>
+            <p>
+                La formation vous sera envoyée par mail. Assurez-vous d'utiliser le bon mail lors du paiement par Stripe.
+            </p>
+            <p class="price">
+                Prix de la formation : <strong>90 €</strong>
+            </p>
+            <form id="payment-form">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Adresse email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <button type="submit" class="cta-button">Payer 90 € via Stripe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Alky AI. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq'); // Clé publique Stripe
+        const errorMessage = document.getElementById('error-message');
+    
+        document.getElementById('payment-form').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Empêche le rechargement de la page
+    
+            // Récupérer les données du formulaire
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+    
+            // Validation des champs
+            if (!name || !email || !phone) {
+                errorMessage.textContent = "Veuillez remplir tous les champs du formulaire.";
+                errorMessage.style.display = 'block';
+                return;
+            }
+    
+            try {
+                // Envoyer les données au serveur pour créer une session de paiement
+                const response = await fetch('https://alkyai.onrender.com/create-checkout-session-formation', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone })
+                });
+    
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
+                }
+    
+                // Rediriger vers Stripe
+                const session = await response.json();
+                stripe.redirectToCheckout({ sessionId: session.id });
+            } catch (error) {
+                errorMessage.textContent = `Erreur : ${error.message}`;
+                errorMessage.style.display = 'block';
+                console.error("Erreur :", error);
+            }
+        });
+    </script>
+</body>
+</html>

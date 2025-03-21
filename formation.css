@@ -1,0 +1,264 @@
+/* Reset des styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.8;
+    background-color: #f4f4f4;
+    color: #333;
+    width: 100%;
+}
+
+/* En-tête en ligne */
+header {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between; /* Aligne "AlkyAI" à gauche et le menu à droite */
+    align-items: center;
+    padding: 10px 5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    flex-wrap: wrap; /* Modifié pour permettre l'ajustement sur mobile */
+}
+
+/* Style du logo AlkyAI */
+header .logo h1 {
+    font-size: 1.6rem; /* Taille ajustée */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    white-space: nowrap;
+}
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacement entre le logo et le texte */
+}
+
+header .logo img {
+    height: 30px; /* Ajuste selon la taille désirée */
+    width: auto; /* Garde les proportions */
+    border-radius: 15px;
+}
+
+/* Centrer le menu et bien espacer */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    list-style: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 80px; /* Espacement équilibré */
+    padding: 0;
+    flex-wrap: nowrap; /* Garde tout sur une seule ligne */
+}
+
+/* Style des liens de navigation */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px; /* Taille correcte */
+    padding: 8px;
+    list-style: none;
+}
+
+/* Styles pour la section héros de la formation */
+.formation-hero {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.formation-hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.formation-hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.formation-hero .cta-button {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.formation-hero .cta-button:hover {
+    background-color: #444;
+}
+
+/* Styles pour la description de la formation */
+.formation-description {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.formation-description h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.description-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.description-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    min-width: 250px;
+    text-align: center;
+}
+
+.description-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.description-card p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.description-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Styles pour les détails de la formation */
+.formation-details {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.formation-details h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.details-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.details-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    min-width: 250px;
+    text-align: center;
+}
+
+.details-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.details-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Styles pour les témoignages */
+.formation-testimonials {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.formation-testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.testimonial-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.testimonial-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 45%;
+    min-width: 250px;
+    text-align: center;
+}
+
+.testimonial-card p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.testimonial-card .author {
+    font-size: 0.9rem;
+    color: #666;
+    font-style: italic;
+}
+
+/* Styles pour le pied de page */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 5%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+}
+/* Styles pour la section CTA */
+.formation-cta {
+    background-color: #333;
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.formation-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.formation-cta p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.formation-cta .cta-button {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.formation-cta .cta-button:hover {
+    background-color: #444;
+}
