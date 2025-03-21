@@ -118,29 +118,29 @@
     <script>
         const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq'); // Clé publique Stripe
         const errorMessage = document.getElementById('error-message');
-
+    
         document.getElementById('checkout-button').addEventListener('click', async () => {
             const amount = parseFloat(document.getElementById('amount').value);
-
+    
             // Validation du montant
             if (isNaN(amount) || amount <= 0) {
                 errorMessage.textContent = "Veuillez entrer un montant valide supérieur à 0.";
                 errorMessage.style.display = 'block';
                 return;
             }
-
+    
             try {
                 const response = await fetch('https://alkyai.onrender.com/create-checkout-session', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ amount })
                 });
-
+    
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
                 }
-
+    
                 const session = await response.json();
                 stripe.redirectToCheckout({ sessionId: session.id });
             } catch (error) {

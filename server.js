@@ -38,28 +38,44 @@ app.post("/send-email", async (req, res) => {
     }
 });
 
-// Route pour créer la session de paiement Stripe
+// Route pour créer la session de paiement avec un montant sélectionné
 app.post('/create-checkout-session', async (req, res) => {
     try {
-        // Créez une session de paiement Stripe
+        const { amount } = req.body;
+
+        // Validation du montant
+        if (isNaN(amount) || amount <= 0) {
+            throw new Error("Le montant doit être un nombre valide.");
+        }
+
+        // Créez une session de paiement Stripe avec un montant dynamique
         const session = await stripe.checkout.sessions.create({
             payment_method_types: ['card'],
             line_items: [{
-                price: 'price_1R5A6jLiKOMWxvxfVbUtbHDE', // Utilisez votre ID de prix ici
-                quantity: 1,
+                price_data: {
+                    currency: 'eur', // Devise : euros
+                    product_data: {
+                        name: 'Paiement Personnalisé', // Nom du produit
+                        description: 'Paiement personnalisé pour un montant spécifique', // Description du produit
+                    },
+                    unit_amount: Math.round(amount * 100), // Montant en centimes
+                },
+                quantity: 1, // Quantité
             }],
-            mode: 'payment',
-            success_url: 'https://alkyai.fr/success-formation.html', // URL de succès
-            cancel_url: 'https://alkyai.fr/cancel-formation.html',  // URL d'annulation
+            mode: 'payment', // Mode de paiement
+            success_url: 'https://alkyai.fr/success.html', // URL de succès
+            cancel_url: 'https://alkyai.fr/cancel.html',  // URL d'annulation
         });
 
         // Renvoyez l'ID de la session au client
         res.json({ id: session.id });
     } catch (error) {
+        console.error("Erreur lors de la création de la session Stripe :", error); // Log pour les erreurs
         res.status(500).json({ error: error.message });
     }
 });
-// Route pour créer la session de paiement Stripe pour la formation
+
+// Route pour créer la session de paiement pour la formation (90 € fixe)
 app.post('/create-checkout-session-formation', async (req, res) => {
     try {
         // Créez une session de paiement Stripe avec un montant fixe
@@ -88,3 +104,7 @@ app.post('/create-checkout-session-formation', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+// Démarre le serveur
+const PORT = process.env.PORT || 10000; // Utilise le port spécifié dans l'environnement ou 10000
+app.listen(PORT, () => console.log(`✅ Serveur en ligne sur le port ${PORT}`));
