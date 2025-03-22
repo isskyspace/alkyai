@@ -44,13 +44,12 @@ header .logo img {
     border-radius: 15px;
 }
 
-
-
 /* Centrer le menu et bien espacer */
 nav {
     display: flex;
     justify-content: center;
     flex-grow: 1;
+    list-style: none;
 }
 
 nav ul {
@@ -67,6 +66,7 @@ nav ul li a {
     text-decoration: none;
     font-size: 15px; /* Taille correcte */
     padding: 8px;
+    list-style: none;
 }
 
 /* Conteneur principal */
@@ -112,31 +112,22 @@ footer {
     width: 100%;
 }
 
-/* Responsive */
-    @media screen and (max-width: 768px) {
-    nav ul {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .container img {
-        width: 80%;
-    }
-    .container h2, .container h3 {
-        font-size: 1.8rem;
-    }
-    .container p, .container ul {
-        font-size: 1.2rem;
-    }
-    /* Ajustement pour mobile */
-    @media screen and (max-width: 768px) {
+/* Ajustement pour mobile */
+@media screen and (max-width: 768px) {
     header {
         padding: 8px 3%;
         flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
     }
-
+    .logo {
+        display: flex;
+        justify-content: center; /* Centre le logo */
+        align-items: center; /* Assure l'alignement vertical */
+        width: 100%; /* Prend toute la largeur */
+        margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
+    }
     header .logo h1 {
-        font-size: 1.4rem; /* Réduction de la taille */
+        font-size: 1.4rem;
+        text-align: center; /* Réduction de la taille */
     }
 
     nav ul {
@@ -164,7 +155,4 @@ footer {
         flex: 1;
         text-align: center; /* Assure l'alignement des éléments */
     }
-
-
 }
-    }
