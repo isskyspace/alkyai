@@ -12,10 +12,50 @@ body {
     color: #333;
     width: 100%;
 }
+.security-message {
+    background-color: #f5f5f5; /* Fond gris clair */
+    border-left: 4px solid #cccccc; /* Bordure grise */
+    padding: 15px; /* Espace intérieur */
+    margin: 20px 0; /* Marge externe */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 12px; /* Taille de police réduite */
+    color: #333333; /* Couleur du texte par défaut */
+    text-align: center; /* Centrer le texte */
+}
+
+.security-icon {
+    margin-bottom: 10px; /* Espace sous le logo */
+}
+
+.security-icon img {
+    width: 40px; /* Taille du logo */
+    height: auto; /* Conserver les proportions */
+}
+
+.green-text {
+    color: #4CAF50; /* Texte en vert */
+}
+
+.gray-text {
+    color: #666666; /* Texte en gris */
+}
+
+.security-message p {
+    margin: 5px 0; /* Espace entre les paragraphes */
+}
+
 .payment-form p {
     font-size: 1.2rem;
     margin-bottom: 20px;
     color: red; /* Texte en rouge */
+}
+.payment-form h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #444;
+    margin-top: 30px;
+    
+    
 }
 .payment-form .price {
     font-size: 1.5rem;
@@ -112,6 +152,7 @@ nav ul li a {
 .payment-form h2 {
     font-size: 2rem;
     margin-bottom: 20px;
+    font-weight: 700; /* Texte en gras */
 }
 
 .payment-form p {

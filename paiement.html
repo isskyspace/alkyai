@@ -36,8 +36,25 @@
             <p class="price">
                 Prix de la formation : <strong>90 €</strong>
             </p>
+            <!-- Message de sécurité et remboursement -->
+            <div class="security-message">
+                <!-- Logo en haut -->
+                <div class="security-icon">
+                    <img src="green-check-mark-icon-symbol-logo-tick-symbol-green-color-transparent-design-free-png.webp" alt="Paiement sécurisé" width="40">
+                </div>
+                <!-- Texte de sécurité -->
+                <p>
+                    <strong class="green-text">Paiement 100% sécurisé :</strong>
+                    <span class="gray-text">Votre transaction est protégée par Stripe, le leader mondial des paiements en ligne.</span>
+                </p>
+                <p>
+                    <strong class="green-text">Remboursement possible :</strong>
+                    <span class="gray-text">Si vous n'êtes pas satisfait de la formation, vous pouvez demander un remboursement sous 30 jours.</span>
+                </p>
+            </div>
             <!-- Bouton pour déclencher le paiement -->
             <button type="button" id="checkout-button">Payer 90 €</button>
+            <h3>Après avoir cliqué sur "Payer", merci de patienter quelques instants, une page de paiement s'ouvrira !</h3>
         </div>
     </section>
 
@@ -53,7 +70,7 @@
         // Initialisez Stripe avec votre clé publique
         const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
         const errorMessage = document.getElementById('error-message');
-    
+
         // Ajoutez un écouteur d'événement au bouton
         document.getElementById('checkout-button').addEventListener('click', async () => {
             try {
@@ -62,19 +79,19 @@
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                 });
-    
+
                 // Vérifiez si la réponse est OK
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
                 }
-    
+
                 // Récupérez l'ID de la session Stripe
                 const session = await response.json();
-    
+
                 // Redirigez vers la page de paiement Stripe
                 const result = await stripe.redirectToCheckout({ sessionId: session.id });
-    
+
                 // Gestion des erreurs de redirection
                 if (result.error) {
                     errorMessage.textContent = result.error.message;
