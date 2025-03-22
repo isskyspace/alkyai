@@ -158,6 +158,7 @@ nav ul li a {
 .payment-form p {
     font-size: 1.2rem;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 
 .payment-form .price {
