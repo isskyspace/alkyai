@@ -141,9 +141,16 @@ footer {
         padding: 8px 3%;
         flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
     }
-
+    .logo {
+        display: flex;
+        justify-content: center; /* Centre le logo */
+        align-items: center; /* Assure l'alignement vertical */
+        width: 100%; /* Prend toute la largeur */
+        margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
+    }
     header .logo h1 {
-        font-size: 1.4rem; /* Réduction de la taille */
+        font-size: 1.4rem;
+        text-align: center; /* Réduction de la taille */
     }
 
     nav ul {
@@ -170,24 +177,5 @@ footer {
     nav ul li {
         flex: 1;
         text-align: center; /* Assure l'alignement des éléments */
-    }
-
-
-    .contact-container {
-        width: 90%;
-        margin: 20px auto;
-        padding: 15px;
-    }
-
-    .contact-form input, .contact-form textarea {
-        padding: 8px;
-    }
-
-    .contact-form button {
-        padding: 8px;
-    }
-
-    footer {
-        padding: 10px;
     }
 }
