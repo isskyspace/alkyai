@@ -521,3 +521,31 @@ footer {
         font-size: 0.9rem;
     }
 }
+/* Styles pour la section Vidéo */
+.formation-video {
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.formation-video h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.video-wrapper {
+    max-width: 800px; /* Limite la largeur de la vidéo */
+    margin: 0 auto; /* Centre la vidéo */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
