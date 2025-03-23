@@ -549,3 +549,52 @@ footer {
     height: auto;
     display: block;
 }
+/* Styles pour la section Logos */
+.logos-section {
+    padding: 40px 20px;
+    background-color: #fff; /* Ou une autre couleur selon votre design */
+    text-align: center;
+}
+
+.logos-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Espacement entre les logos */
+    flex-wrap: wrap; /* Permet aux logos de passer à la ligne sur les petits écrans */
+}
+
+.logos-grid a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    display: inline-block; /* Assure un comportement correct des liens */
+}
+
+.logos-grid .logo {
+    width: 90px; /* Taille des logos */
+    height: auto;
+    
+    transition: filter 0.3s ease;
+}
+
+.logos-grid .logo:hover {
+    filter: grayscale(0%); /* Optionnel : les logos reprennent leur couleur au survol */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .logos-grid {
+        gap: 20px; /* Réduire l'espacement sur les petits écrans */
+    }
+
+    .logos-grid .logo {
+        width: 60px; /* Réduire la taille des logos sur mobile */
+    }
+}
