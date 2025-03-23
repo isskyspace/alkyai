@@ -88,7 +88,7 @@ app.post('/create-checkout-session-formation', async (req, res) => {
                         name: 'Formation IA et Business', // Nom du produit
                         description: 'Formation complète sur l\'IA et le business', // Description du produit
                     },
-                    unit_amount: 9000, // Montant en centimes (90 € = 9000 centimes)
+                    unit_amount: 6000, // Montant en centimes (90 € = 9000 centimes)
                 },
                 quantity: 1, // Quantité
             }],
