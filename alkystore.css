@@ -113,6 +113,30 @@ nav ul li a {
         text-align: center; /* Assure l'alignement des éléments */
     }
 }
+/* Styles pour le logo */
+.logo a {
+    text-decoration: none; /* Supprime le soulignement du lien */
+    display: flex; /* Aligne l'image et le texte horizontalement */
+    align-items: center; /* Centre verticalement l'image et le texte */
+    gap: 10px; /* Espacement entre l'image et le texte */
+    color: inherit; /* Hérite la couleur du texte parent */
+}
+
+.logo a:hover {
+    opacity: 0.8; /* Effet de survol optionnel */
+}
+
+.logo img {
+    height: 30px; /* Ajustez la taille du logo si nécessaire */
+    width: auto;
+    border-radius: 15px;
+}
+
+.logo h1 {
+    font-size: 1.6rem; /* Ajustez la taille du texte si nécessaire */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    white-space: nowrap;
+}
 
 /* Section Investir */
 .products {
