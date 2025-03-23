@@ -189,6 +189,34 @@ nav ul li a {
     font-size: 1.5rem;
     margin-bottom: 30px;
 }
+.logo-section {
+    text-align: center; /* Centre les logos horizontalement */
+    padding: 20px 0; /* Ajoute un peu d'espace autour de la section */
+}
+
+.logos-container {
+    display: flex; /* Utilise Flexbox pour aligner les logos */
+    justify-content: center; /* Centre les logos horizontalement */
+    align-items: center; /* Centre les logos verticalement */
+    gap: 25px; /* Ajoute un espace entre les logos */
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.logo {
+    max-width: 90px; /* Limite la taille des logos */
+    height: auto; /* Garde le ratio des logos */
+    width: 40px;
+}
+.logos-container a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    display: inline-block; /* Permet de mieux gérer l'espace autour des logos */
+}
+
+.logos-container a:hover {
+    opacity: 0.8; /* Effet de transparence au survol */
+    transition: opacity 0.3s ease; /* Animation fluide */
+}
 /* Ajustement pour mobile */
 @media screen and (max-width: 768px) {
     header {
