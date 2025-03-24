@@ -10,15 +10,11 @@
     <!-- Event snippet for Achat conversion page --> <script> gtag('event', 'conversion', { 'send_to': 'AW-16944560516/APyoCLyY5q0aEITz5Y8_', 'transaction_id': '' }); </script>
     <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16944560516"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-16944560516'); </script>
     <link rel="icon" type="image/png" href="alkyai_logo_rounded.png">
-
-    
-        <!-- Vous pouvez ajouter d'autres éléments dans votre header ici (menu, etc.) -->
-    
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="https://alkyai.fr" target="_blank"> <!-- Ajoutez votre lien ici -->
+            <a href="https://alkyai.fr" target="_blank">
                 <img src="alkyai_logo_rounded.png" alt="Logo Alky AI">
                 <h1>Alky AI</h1>
             </a>
@@ -32,7 +28,100 @@
             </ul>
         </nav>
     </header>
+    <section class="hero-alkyai">
+        <div class="container">
+            <div class="hero-content">
+                <h1>AlkyAI - L'avenir de l'Intelligence Artificielle</h1>
+                <p>Pionniers dans le développement de solutions IA innovantes qui transforment les industries et améliorent la vie quotidienne.</p>
+                <a href="formation.html" class="btn btn-vision">
+                    <span>Découvrir notre formation</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+            </div>
+        </div>
+    </section>
 
+    <!-- About Alkyaï Section -->
+    <section id="about" class="about-alkyai">
+        <div class="container">
+            <div class="section-title">
+                <h2>Notre Mission</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Révolutionner par l'IA</h3>
+                    <p>Fondée en 2025, AlkyAI est née de la conviction que l'intelligence artificielle peut résoudre les défis les plus complexes de notre époque.</p>
+                    <p>Deux étudiant combine recherche de pointe et applications pratiques pour créer des solutions qui font la différence.</p>
+                    <p>Nous croyons en une IA éthique, transparente et au service de l'humain.</p>
+                </div>
+                <div class="about-image">
+                    <img src="Marketing-innovation.jpeg" alt="Équipe Alkyaï travaillant sur l'IA">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IA Innovations Section -->
+    <section class="ia-innovations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nos Innovations en IA</h2>
+            </div>
+            <div class="ia-grid">
+                <div class="ia-card">
+                    <div class="ia-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Trie Autonome des déchets</h3>
+                    <p></p>
+                </div>
+                <div class="ia-card">
+                    <div class="ia-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Recyclage Autonome</h3>
+                    <p></p>
+                </div>
+                <div class="ia-card">
+                    <div class="ia-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Transformation énergétique Autonome</h3>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Animation trigger on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.ia-card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            document.querySelectorAll('.about-text, .about-image').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+    <section class="video-section">
+        <div class="container">
+            <h2></h2>
+            <div class="video-container">
+                <iframe src="7648398-hd_1920_1080_30fps.mp4" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
     <div class="present">
         <h2>AlkyBin – La Poubelle du Futur qui Transforme vos Déchets en Énergie</h2>
         <p>Face aux enjeux écologiques et énergétiques actuels, AlkyBin se présente comme une solution innovante pour une gestion intelligente des déchets domestiques. Cette poubelle révolutionnaire ne se contente pas de stocker vos ordures : elle les transforme en énergie grâce à des technologies avancées, réduisant ainsi l'empreinte carbone et optimisant l'utilisation des ressources.</p>
@@ -40,19 +129,14 @@
     </div>
 
     <main>
-        <section class="products">
-            <div class="product">
-                <h2>Faire un don dans AlkyBin</h2>
-                <form id="payment-form">
-                    <label for="amount">Montant (en €) :</label>
-                    <input type="number" id="amount" name="amount" min="1" step="0.01" placeholder="Entrez un montant" required>
-                    <button type="button" id="checkout-button">Accepter</button>
-                </form>
-                
-            </div>
-        </section>
+       
+        <!-- Section Vidéo -->
+        
 
-        <!-- Nouvelle section ajoutée avec le texte de AlkyBin -->
+        <!-- Section Services -->
+        
+
+        <!-- Section AlkyBin Description -->
         <section class="alkybin-description">
             <h3>🌱 Comment fonctionne AlkyBin ?</h3>
             <p>AlkyBin est équipée d’un système de transformation des déchets qui exploite deux procédés distincts pour générer de l’énergie :</p>
@@ -111,6 +195,18 @@
             <h3>🌍 Pourquoi choisir AlkyBin ?</h3>
             <p>Adopter AlkyBin, c’est faire un choix responsable et durable pour son foyer. Grâce à cette poubelle intelligente, vos déchets ne sont plus une contrainte, mais une véritable source d’énergie. Ce projet s’inscrit pleinement dans la transition énergétique et l’économie circulaire, en permettant à chacun de participer à la réduction des déchets et à la production d’énergie propre.</p>
             <p><strong>♻️ Transformez vos déchets en énergie avec AlkyBin et faites un pas vers un avenir plus vert !</strong></p>
+        </section>
+
+        <!-- Section Don (déplacée en bas) -->
+        <section class="products">
+            <div class="product">
+                <h2>Faire un don pour soutenir AlkyBin</h2>
+                <form id="payment-form">
+                    <label for="amount">Montant (en €) :</label>
+                    <input type="number" id="amount" name="amount" min="1" step="0.01" placeholder="Entrez un montant" required>
+                    <button type="button" id="checkout-button">Accepter</button>
+                </form>
+            </div>
         </section>
     </main>
 
