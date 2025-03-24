@@ -43,7 +43,29 @@ header .logo img {
     width: auto; /* Garde les proportions */
     border-radius: 15px;
 }
+.image-container {
+    text-align: center; /* Centre horizontalement */
+    margin: 20px 0; /* Espace autour de l'image */
+}
 
+.image-link {
+    display: inline-block; /* Permet d'appliquer les marges */
+}
+
+.image-link img {
+    width: 200px; /* Taille modérée */
+    height: auto; /* Garde les proportions */
+    max-width: 100%; /* Responsive */
+    border: 1px solid #ddd; /* Bordure légère */
+    border-radius: 4px; /* Coins légèrement arrondis */
+    padding: 5px; /* Espace intérieur */
+    transition: transform 0.3s; /* Animation au survol */
+}
+
+.image-link:hover img {
+    transform: scale(1.05); /* Légère augmentation au survol */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Ombre au survol */
+}
 /* Centrer le menu et bien espacer */
 nav {
     display: flex;
