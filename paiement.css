@@ -182,7 +182,9 @@ nav ul li a {
     color: #333333;
     text-align: center;
 }
-
+.security-message h3 {
+    margin-bottom: 15px;
+}
 .security-icon img {
     width: 40px;
     height: auto;
@@ -241,6 +243,7 @@ nav ul li a {
     border: none;
     cursor: pointer;
     transition: background-color 0.3s;
+    
 }
 
 .payment-form .cta-button:hover {
@@ -257,6 +260,7 @@ nav ul li a {
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-bottom: 18px;
 }
 
 #checkout-button:hover {
