@@ -260,7 +260,7 @@ footer {
     .logo img {
         height: 35px; /* Ajuste la taille du logo */
         width: auto;
-        margin-right: 8px; /* Décale légèrement le logo vers la gauche */
+        margin-right: 5px; /* Décale légèrement le logo vers la gauche */
     }
 
     header .logo h1 {
