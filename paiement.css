@@ -32,9 +32,7 @@ body {
     header .logo a {
         text-align: center;
     }
-    header .logo img {
-        text-align: center;
-    }
+   
     nav ul {
         gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
     }
