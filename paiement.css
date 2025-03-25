@@ -30,9 +30,9 @@ header {
 /* Styles pour le logo */
 .logo a {
     text-decoration: none; /* Supprime le soulignement du lien */
-    display: flex; /* Aligne l'image et le texte horizontalement */
-    align-items: center; /* Centre verticalement l'image et le texte */
-    gap: 10px; /* Espacement entre l'image et le texte */
+    display: flex; /* Aligne l’image et le texte horizontalement */
+    align-items: center; /* Centre verticalement l’image et le texte */
+    gap: 10px; /* Espacement entre l’image et le texte */
     color: inherit; /* Hérite la couleur du texte parent */
 }
 
@@ -51,9 +51,6 @@ header {
     font-family: Georgia, 'Times New Roman', Times, serif;
     white-space: nowrap;
 }
-
-
-
 
 /* Centrer le menu et bien espacer */
 nav {
@@ -245,27 +242,16 @@ footer {
 /* Ajustements pour mobile */
 @media screen and (max-width: 768px) {
     header {
-        padding: 8px 3%;
-        flex-wrap: wrap;
-    }
-
-    .logo {
-        display: flex;
-        justify-content: center;
+        flex-direction: column;
         align-items: center;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-    .logo {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    header .logo h1 {
         text-align: center;
     }
+
+    .logo {
+        justify-content: center;
+        width: 100%;
+    }
+
     header .logo h1 {
         font-size: 1.4rem;
         text-align: center;
