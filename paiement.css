@@ -29,10 +29,7 @@ body {
         font-size: 1.4rem;
         text-align: center; /* Réduction de la taille */
     }
-    header .logo a {
-        text-align: center;
-    }
-   
+
     nav ul {
         gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
     }
