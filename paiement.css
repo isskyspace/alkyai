@@ -89,6 +89,9 @@ nav ul li a {
         align-items: center; /* Assure l'alignement vertical */
         width: 100%; /* Prend toute la largeur */
         margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
+        
+    }
+    .logo a {
         margin-left: 10px;
     }
     header .logo h1 {
@@ -136,6 +139,7 @@ nav ul li a {
     height: 30px; /* Ajustez la taille du logo si nécessaire */
     width: auto;
     border-radius: 15px;
+    
 }
 
 .logo h1 {
