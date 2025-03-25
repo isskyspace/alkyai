@@ -3,7 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    max-width: 100%;
+    
 }
 
 body {
@@ -260,7 +260,7 @@ footer {
     .logo img {
         height: 35px; /* Taille du logo */
         width: auto;
-        margin-left: -5px; /* Décale légèrement le logo vers la gauche */
+        margin-left: -8px; /* Décale légèrement le logo vers la gauche */
     }
 
     header .logo h1 {
