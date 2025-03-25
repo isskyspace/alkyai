@@ -110,11 +110,7 @@ nav ul li a {
         text-align: center; /* Centrer le contenu sur mobile */
     }
 
-    /* Modification pour "Mon compte" et "Adhérer" sur mobile */
-    nav ul {
-        flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
-        justify-content: space-around; /* Répartition équitable des éléments */
-    }
+    
 
     nav ul li {
         flex: 1;
