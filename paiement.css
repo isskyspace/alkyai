@@ -244,47 +244,49 @@ footer {
     header {
         padding: 8px 3%;
         flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .logo {
         display: flex;
-        justify-content: flex-start; /* Décale légèrement le logo vers la gauche */
-        align-items: center; /* Assure l'alignement vertical */
+        justify-content: center; /* Centre l'ensemble logo + texte */
+        align-items: center;
         width: 100%; /* Prend toute la largeur */
-        padding-left: 20px; /* Ajoute un léger décalage vers la gauche */
-        margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
+        margin-bottom: 10px;
+    }
+
+    .logo img {
+        height: 35px; /* Ajuste la taille du logo */
+        width: auto;
+        margin-right: 8px; /* Décale légèrement le logo vers la gauche */
     }
 
     header .logo h1 {
-        font-size: 1.4rem;
-        text-align: center; /* Centre le texte "Alky AI" */
-        flex-grow: 1; /* Permet au texte de rester centré */
+        font-size: 1.6rem;
+        text-align: center; /* Centre le texte */
+    }
+
+    nav {
+        width: 100%;
+        text-align: center; /* Centre les éléments du menu */
     }
 
     nav ul {
-        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
-    }
-
-    nav ul li a {
-        font-size: 12px; /* Texte plus petit pour ne pas couper */
-        padding: 5px;
-    }
-
-    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
-    .logo, nav {
-        flex-basis: 100%;
-        text-align: center; /* Centrer le contenu sur mobile */
-    }
-
-    /* Modification pour "Mon compte" et "Adhérer" sur mobile */
-    nav ul {
-        flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
-        justify-content: space-around; /* Répartition équitable des éléments */
+        display: flex;
+        gap: 30px; /* Espacement ajusté */
+        flex-wrap: wrap;
+        justify-content: center; /* Centre les liens de navigation */
     }
 
     nav ul li {
-        flex: 1;
-        text-align: center; /* Assure l'alignement des éléments */
+        flex: none;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 5px;
     }
 }
-
