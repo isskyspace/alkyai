@@ -260,7 +260,7 @@ footer {
     .logo img {
         height: 35px; /* Ajuste la taille du logo */
         width: auto;
-        margin-right: 5px; /* Décale légèrement le logo vers la gauche */
+        margin-right: 8px; /* Décale légèrement le logo vers la gauche */
     }
 
     header .logo h1 {
@@ -275,9 +275,9 @@ footer {
 
     nav ul {
         display: flex;
-        gap: 30px; /* Espacement ajusté */
-        flex-wrap: wrap;
-        justify-content: center; /* Centre les liens de navigation */
+        gap: 15px; /* Réduit l’espace entre les liens */
+        flex-wrap: nowrap; /* Empêche les retours à la ligne */
+        justify-content: center; /* Centre les liens */
     }
 
     nav ul li {
@@ -288,5 +288,6 @@ footer {
     nav ul li a {
         font-size: 14px;
         padding: 5px;
+        white-space: nowrap; /* Empêche le passage à la ligne */
     }
 }
