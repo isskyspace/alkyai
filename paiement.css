@@ -12,127 +12,7 @@ body {
     color: #333;
     width: 100%;
 }
-/* Version mobile - max-width: 768px */
-@media screen and (max-width: 768px) {
-    /* Réglages généraux */
-    body {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-    
-    /* Header */
-    header {
-        padding: 10px 5%;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    header .logo {
-        margin-bottom: 15px;
-        justify-content: center;
-    }
-    
-    header .logo h1 {
-        font-size: 1.4rem;
-    }
-    
-    header .logo img {
-        height: 25px;
-    }
-    
-    /* Navigation */
-    nav {
-        width: 100%;
-    }
-    
-    nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    nav ul li a {
-        font-size: 13px;
-        padding: 5px 8px;
-        white-space: nowrap;
-    }
-    
-    /* Conteneur principal */
-    .payment-form .container {
-        padding: 15px;
-        margin: 0 10px;
-    }
-    
-    .payment-form h2 {
-        font-size: 1.5rem;
-    }
-    
-    .payment-form p {
-        font-size: 1rem;
-    }
-    
-    .payment-form .price {
-        font-size: 1.3rem;
-    }
-    
-    /* Logos */
-    .logos-container {
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-    
-    .logo {
-        max-width: 70px;
-    }
-    
-    /* Bouton */
-    #checkout-button {
-        padding: 12px 25px;
-        font-size: 16px;
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    /* Message de sécurité */
-    .security-message {
-        padding: 10px;
-        margin: 15px 0;
-        font-size: 11px;
-    }
-    
-    .security-icon img {
-        width: 30px;
-    }
-}
 
-/* Version très petits mobiles - max-width: 480px */
-@media screen and (max-width: 480px) {
-    nav ul {
-        gap: 8px;
-    }
-    
-    nav ul li a {
-        font-size: 12px;
-        padding: 4px 6px;
-    }
-    
-    .payment-form .container {
-        padding: 10px;
-    }
-    
-    .logos-container {
-        gap: 10px;
-    }
-    
-    .logo {
-        max-width: 60px;
-    }
-    
-    #checkout-button {
-        padding: 10px 20px;
-        font-size: 15px;
-    }
-}
 /* En-tête en ligne */
 header {
     background-color: #333;
@@ -181,7 +61,50 @@ header .logo img {
     padding: 5px; /* Espace intérieur */
     transition: transform 0.3s; /* Animation au survol */
 }
+/* Ajustement pour mobile */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 8px 3%;
+        flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
+    }
+    .logo {
+        display: flex;
+        justify-content: center; /* Centre le logo */
+        align-items: center; /* Assure l'alignement vertical */
+        width: 100%; /* Prend toute la largeur */
+        margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
+    }
+    header .logo h1 {
+        font-size: 1.4rem;
+        text-align: center; /* Réduction de la taille */
+    }
 
+    nav ul {
+        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
+    }
+
+    nav ul li a {
+        font-size: 12px; /* Texte plus petit pour ne pas couper */
+        padding: 5px;
+    }
+
+    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
+    .logo, nav {
+        flex-basis: 100%;
+        text-align: center; /* Centrer le contenu sur mobile */
+    }
+
+    /* Modification pour "Mon compte" et "Adhérer" sur mobile */
+    nav ul {
+        flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+        justify-content: space-around; /* Répartition équitable des éléments */
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center; /* Assure l'alignement des éléments */
+    }
+}
 .image-link:hover img {
     transform: scale(1.05); /* Légère augmentation au survol */
     box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Ombre au survol */
