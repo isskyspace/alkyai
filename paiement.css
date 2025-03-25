@@ -93,6 +93,7 @@ nav ul li a {
     header .logo h1 {
         font-size: 1.4rem;
         text-align: center; /* Réduction de la taille */
+        margin-left: 10px;
     }
 
     nav ul {
