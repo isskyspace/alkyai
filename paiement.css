@@ -61,7 +61,50 @@ header .logo img {
     padding: 5px; /* Espace intérieur */
     transition: transform 0.3s; /* Animation au survol */
 }
+/* Ajustement pour mobile */
+@media screen and (max-width: 768px) {
+    header {
+        padding: 8px 3%;
+        flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
+    }
+    .logo {
+        display: flex;
+        justify-content: center; /* Centre le logo */
+        align-items: center; /* Assure l'alignement vertical */
+        width: 100%; /* Prend toute la largeur */
+        margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
+    }
+    header .logo h1 {
+        font-size: 1.4rem;
+        text-align: center; /* Réduction de la taille */
+    }
 
+    nav ul {
+        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
+    }
+
+    nav ul li a {
+        font-size: 12px; /* Texte plus petit pour ne pas couper */
+        padding: 5px;
+    }
+
+    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
+    .logo, nav {
+        flex-basis: 100%;
+        text-align: center; /* Centrer le contenu sur mobile */
+    }
+
+    /* Modification pour "Mon compte" et "Adhérer" sur mobile */
+    nav ul {
+        flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
+        justify-content: space-around; /* Répartition équitable des éléments */
+    }
+
+    nav ul li {
+        flex: 1;
+        text-align: center; /* Assure l'alignement des éléments */
+    }
+}
 .image-link:hover img {
     transform: scale(1.05); /* Légère augmentation au survol */
     box-shadow: 0 0 10px rgba(0,0,0,0.2); /* Ombre au survol */
