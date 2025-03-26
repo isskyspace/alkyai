@@ -20,12 +20,12 @@
                 <h1>Alky AI</h1>
             </a>
         </div>
-        <button class="burger" aria-label="Menu mobile">
+        <div class="burger">
             <span></span>
             <span></span>
             <span></span>
-        </button>
-        <nav class="nav-menu">
+        </div>
+        <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="produits.html">Produits</a></li>
@@ -102,60 +102,19 @@
 
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-        // Menu burger amélioré
+        // Menu burger
         document.addEventListener('DOMContentLoaded', function() {
             const burger = document.querySelector('.burger');
-            const navMenu = document.querySelector('.nav-menu');
-            const navLinks = document.querySelectorAll('.nav-menu a');
+            const nav = document.querySelector('nav');
             
-            // Vérifie que les éléments existent
-            if (!burger || !navMenu) return;
-            
-            // Fonction pour basculer le menu
-            function toggleMenu() {
-                burger.classList.toggle('active');
-                navMenu.classList.toggle('active');
-                document.body.classList.toggle('no-scroll');
-                
-                // Accessibilité
-                const isExpanded = burger.classList.contains('active');
-                burger.setAttribute('aria-expanded', isExpanded);
-            }
-            
-            // Clic sur le burger
-            burger.addEventListener('click', function(e) {
-                e.stopPropagation();
-                toggleMenu();
-            });
-            
-            // Clic sur les liens du menu
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (navMenu.classList.contains('active')) {
-                        toggleMenu();
-                    }
-                });
-            });
-            
-            // Fermer le menu en cliquant à l'extérieur
-            document.addEventListener('click', function(e) {
-                if (navMenu.classList.contains('active') && 
-                    !e.target.closest('.nav-menu') && 
-                    !e.target.closest('.burger')) {
-                    toggleMenu();
-                }
-            });
-            
-            // Fermer avec la touche Escape
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-                    toggleMenu();
-                    burger.focus();
-                }
+            burger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                nav.classList.toggle('active');
             });
         });
+        
 
-        // Stripe (votre code original inchangé)
+        // Stripe
         const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
         const errorMessage = document.getElementById('error-message');
 
