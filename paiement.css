@@ -77,60 +77,62 @@ nav ul li a {
     padding: 8px;
 }
 
-/* Ajustement pour mobile */
+/* Ajustement du header pour mobile */
 @media screen and (max-width: 768px) {
     header {
-        display: flex;
-        flex-direction: column; /* Met les éléments en colonne */
-        align-items: center; /* Centre tout horizontalement */
+        flex-direction: column; /* Empile les éléments */
+        align-items: center; /* Centre tous les éléments */
         text-align: center;
-        padding: 10px 3%;
     }
 
     .logo {
-        display: flex;
-        align-items: center; /* Centre verticalement */
-        justify-content: center; /* Centre horizontalement */
-        gap: 10px;
         width: 100%;
+        display: flex;
+        justify-content: center; /* Centre le logo */
+        align-items: center;
+        margin-bottom: 10px; /* Espace sous le logo */
     }
 
     .logo a {
         display: flex;
+        flex-direction: column; /* Aligne logo et texte en colonne */
         align-items: center;
-        justify-content: center;
-        text-decoration: none;
     }
 
     .logo img {
-        height: 30px;
+        height: 40px; /* Augmente légèrement la taille du logo */
         width: auto;
-        border-radius: 15px;
     }
 
     .logo h1 {
         font-size: 1.6rem;
-        white-space: nowrap; /* Empêche le retour à la ligne */
+        text-align: center;
+        margin-top: 5px; /* Espace entre le logo et le texte */
     }
 
-    /* Ajustement du menu */
     nav {
         width: 100%;
     }
 
     nav ul {
         display: flex;
-        justify-content: center;
-        flex-wrap: nowrap; /* Évite le retour à la ligne */
-        gap: 30px;
+        flex-wrap: wrap; /* Permet un retour à la ligne si nécessaire */
+        justify-content: center; /* Centre les éléments du menu */
+        gap: 20px; /* Espacement réduit pour tenir sur mobile */
         padding: 0;
     }
 
+    nav ul li {
+        flex: none;
+        text-align: center;
+    }
+
     nav ul li a {
-        font-size: 13px; /* Taille ajustée */
-        padding: 5px;
+        font-size: 14px; /* Ajuste la taille pour un bon affichage */
+        padding: 8px;
     }
 }
+
 
 /* Styles pour le logo */
 .logo a {
