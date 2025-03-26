@@ -80,51 +80,58 @@ nav ul li a {
 /* Ajustement pour mobile */
 @media screen and (max-width: 768px) {
     header {
-        padding: 8px 3%;
-        flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
+        display: flex;
+        flex-direction: column; /* Met les éléments en colonne */
+        align-items: center; /* Centre tout horizontalement */
+        text-align: center;
+        padding: 10px 3%;
     }
+
     .logo {
         display: flex;
-        justify-content: center; /* Centre le logo */
-        align-items: center; /* Assure l'alignement vertical */
-        width: 100%; /* Prend toute la largeur */
-        margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
-        
+        align-items: center; /* Centre verticalement */
+        justify-content: center; /* Centre horizontalement */
+        gap: 10px;
+        width: 100%;
     }
+
     .logo a {
-        margin-left: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
     }
+
     .logo img {
-        margin-left: 30px;
+        height: 30px;
+        width: auto;
+        border-radius: 15px;
     }
-    header .logo h1 {
-        font-size: 1.4rem;
-        text-align: center; /* Réduction de la taille */
-        margin-left: 10px;
+
+    .logo h1 {
+        font-size: 1.6rem;
+        white-space: nowrap; /* Empêche le retour à la ligne */
+    }
+
+    /* Ajustement du menu */
+    nav {
+        width: 100%;
     }
 
     nav ul {
-        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
+        display: flex;
+        justify-content: center;
+        flex-wrap: nowrap; /* Évite le retour à la ligne */
+        gap: 30px;
+        padding: 0;
     }
 
     nav ul li a {
-        font-size: 12px; /* Texte plus petit pour ne pas couper */
+        font-size: 13px; /* Taille ajustée */
         padding: 5px;
     }
-
-    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
-    .logo, nav {
-        flex-basis: 100%;
-        text-align: center; /* Centrer le contenu sur mobile */
-    }
-
-    
-
-    nav ul li {
-        flex: 1;
-        text-align: center; /* Assure l'alignement des éléments */
-    }
 }
+
 /* Styles pour le logo */
 .logo a {
     text-decoration: none; /* Supprime le soulignement du lien */
