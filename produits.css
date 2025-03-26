@@ -13,43 +13,50 @@ body {
     width: 100%;
 }
 
-/* En-tête en ligne */
+/* En-tête */
 header {
     background-color: #333;
     color: #fff;
     display: flex;
-    justify-content: space-between; /* Aligne "AlkyAI" à gauche et le menu à droite */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-    flex-wrap: wrap; /* Modifié pour permettre l'ajustement sur mobile */
+    position: relative;
 }
 
-/* Style du logo AlkyAI */
-header .logo h1 {
-    font-size: 1.6rem; /* Taille ajustée */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    white-space: nowrap;
-}
-header .logo {
+/* Styles pour le logo */
+.logo a {
+    text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 10px; /* Espacement entre le logo et le texte */
+    gap: 10px;
+    color: inherit;
 }
 
-header .logo img {
-    height: 30px; /* Ajuste selon la taille désirée */
-    width: auto; /* Garde les proportions */
+.logo a:hover {
+    opacity: 0.8;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
     border-radius: 15px;
 }
 
+.logo h1 {
+    font-size: 1.6rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    white-space: nowrap;
+}
+
+/* Navigation */
 /* Centrer le menu et bien espacer */
 nav {
     display: flex;
     justify-content: center;
     flex-grow: 1;
-    list-style: none;
 }
 
 nav ul {
@@ -66,7 +73,89 @@ nav ul li a {
     text-decoration: none;
     font-size: 15px; /* Taille correcte */
     padding: 8px;
-    list-style: none;
+}
+
+/* Bouton burger */
+.burger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 100;
+}
+
+.burger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.burger span:nth-child(1) {
+    top: 0;
+}
+
+.burger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger span:nth-child(3) {
+    bottom: 0;
+}
+
+.burger.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+/* Version mobile */
+@media screen and (max-width: 768px) {
+    .burger {
+        display: block;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #333;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 99;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+    }
 }
 
 /* Conteneur principal */
@@ -112,82 +201,5 @@ footer {
     width: 100%;
 }
 
-/* Ajustement du header pour mobile */
-@media screen and (max-width: 768px) {
-    header {
-        flex-direction: column; /* Empile les éléments */
-        align-items: center; /* Centre tous les éléments */
-        text-align: center;
-    }
 
-    .logo {
-        width: 100%;
-        display: flex;
-        justify-content: center; /* Centre le logo */
-        align-items: center;
-        margin-bottom: 10px; /* Espace sous le logo */
-    }
 
-    .logo a {
-        display: flex;
-        flex-direction: column; /* Aligne logo et texte en colonne */
-        align-items: center;
-    }
-
-    .logo img {
-        height: 40px; /* Augmente légèrement la taille du logo */
-        width: auto;
-    }
-
-    .logo h1 {
-        font-size: 1.6rem;
-        text-align: center;
-        margin-top: 5px; /* Espace entre le logo et le texte */
-    }
-
-    nav {
-        width: 100%;
-    }
-
-    nav ul {
-        display: flex;
-        flex-wrap: wrap; /* Permet un retour à la ligne si nécessaire */
-        justify-content: center; /* Centre les éléments du menu */
-        gap: 20px; /* Espacement réduit pour tenir sur mobile */
-        padding: 0;
-    }
-
-    nav ul li {
-        flex: none;
-        text-align: center;
-    }
-
-    nav ul li a {
-        font-size: 14px; /* Ajuste la taille pour un bon affichage */
-        padding: 8px;
-    }
-}
-/* Styles pour le logo */
-.logo a {
-    text-decoration: none; /* Supprime le soulignement du lien */
-    display: flex; /* Aligne l'image et le texte horizontalement */
-    align-items: center; /* Centre verticalement l'image et le texte */
-    gap: 10px; /* Espacement entre l'image et le texte */
-    color: inherit; /* Hérite la couleur du texte parent */
-}
-
-.logo a:hover {
-    opacity: 0.8; /* Effet de survol optionnel */
-}
-
-.logo img {
-    height: 30px; /* Ajustez la taille du logo si nécessaire */
-    width: auto;
-    border-radius: 15px;
-}
-
-.logo h1 {
-    font-size: 1.6rem; /* Ajustez la taille du texte si nécessaire */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    white-space: nowrap;
-}

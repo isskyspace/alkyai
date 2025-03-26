@@ -20,6 +20,11 @@
                 <h1>Alky AI</h1>
             </a>
         </div>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
@@ -68,5 +73,17 @@
     <footer>
         <p>&copy; 2025 Alky AI. Tous droits réservés.</p>
     </footer>
+    <script>
+        // Menu burger
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('nav');
+            
+            burger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
