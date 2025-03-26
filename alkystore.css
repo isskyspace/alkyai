@@ -281,40 +281,7 @@ footer {
     width: 100%;
 }
 
-/* Adaptation mobile */
-@media screen and (max-width: 768px) {
-    .products {
-        grid-template-columns: 1fr 1fr;
-        padding: 15px;
-    }
 
-    .product {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .products {
-        grid-template-columns: 1fr;
-        padding: 10px;
-    }
-
-    .product {
-        padding: 15px;
-    }
-
-    .alkybin-description h3, .alkybin-description h4 {
-        font-size: 1.6rem;
-    }
-
-    .alkybin-description p {
-        font-size: 1rem;
-    }
-
-    .alkybin-description ul {
-        font-size: 1rem;
-    }
-}
 
 /* Section À propos */
 .about {
@@ -410,18 +377,8 @@ footer {
     --gray: #95a5a6;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f5f5f5;
-    color: var(--dark);
-    line-height: 1.6;
-}
+
 
 .container {
     width: 90%;
