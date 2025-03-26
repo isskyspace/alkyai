@@ -231,7 +231,6 @@ nav ul li a {
     font-size: 1.2rem;
     margin-bottom: 20px;
     font-weight: bold;
-    color: #ff0000;
 }
 
 .payment-form .price {
@@ -298,6 +297,9 @@ nav ul li a {
     max-width: 90px;
     height: auto;
     width: 40px;
+}
+.attention p {
+    color: #ff0000;
 }
 
 .logos-container a {
