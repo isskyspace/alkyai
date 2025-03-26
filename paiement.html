@@ -15,10 +15,15 @@
     
     <header>
         <div class="logo">
-            <a href="https://alkyai.fr" target="_blank"> <!-- Ajoutez votre lien ici -->
+            <a href="https://alkyai.fr" target="_blank">
                 <img src="alkyai_logo_rounded.png" alt="Logo Alky AI">
                 <h1>Alky AI</h1>
             </a>
+        </div>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
         <nav>
             <ul>
@@ -32,8 +37,6 @@
 
     <section class="payment-form">
         <div class="container">
-            <!-- Ajout d'une image -->
-            
             <h2>Finalisez votre Achat</h2>
             <div class="attention">
                 <p>
@@ -49,13 +52,10 @@
             <p class="price">
                 Prix de la formation : <strong>60 €</strong>
             </p>
-            <!-- Message de sécurité et remboursement -->
             <div class="security-message">
-                <!-- Logo en haut -->
                 <div class="security-icon">
                     <img src="green-check-mark-icon-symbol-logo-tick-symbol-green-color-transparent-design-free-png.webp" alt="Paiement sécurisé" width="40">
                 </div>
-                <!-- Texte de sécurité -->
                 <p>
                     <strong class="green-text">Paiement 100% sécurisé :</strong>
                     <span class="gray-text">Votre transaction est protégée par Stripe, le leader mondial des paiements en ligne.</span>
@@ -65,7 +65,6 @@
                     <span class="gray-text">Si vous n'êtes pas satisfait de la formation, vous pouvez demander un remboursement sous 30 jours.</span>
                 </p>
             </div>
-            <!-- Bouton pour déclencher le paiement -->
             <button type="button" id="checkout-button">Paiement</button>
             <h3>Après avoir cliqué sur "Paiement", merci de patienter quelques instants, une page de paiement s'ouvrira !</h3>
         </div>
@@ -73,15 +72,12 @@
     <section class="logo-section">
         <div class="container">
             <div class="logos-container">
-                <!-- Logo 1 avec lien -->
                 <a href="https://www.lien1.com" target="_blank">
                     <img src="Mastercard-logo.svg.webp" alt="Logo 1" class="logo">
                 </a>
-                <!-- Logo 2 avec lien -->
                 <a href="https://www.americanexpress.com/fr-fr/" target="_blank">
                     <img src="amercican.png" alt="Logo 2" class="logo">
                 </a>
-                <!-- Logo 3 avec lien -->
                 <a href="https://www.visa.fr/" target="_blank">
                     <img src="Visa-Logo-2006–2014.jpg" alt="Logo 3" class="logo">
                 </a>
@@ -94,7 +90,6 @@
                 <a href="https://stripe.com/fr" target="_blank">
                     <img src="stripe-1e3d81f8.png" alt="Logo 3" class="logo">
                 </a>
-                <!-- Ajoutez autant de logos que nécessaire -->
             </div>
         </div>
     </section>
@@ -105,41 +100,43 @@
         </div>
     </footer>
 
-    <!-- Intégration de Stripe.js -->
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-        // Initialisez Stripe avec votre clé publique
+        // Menu burger
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('nav');
+            
+            burger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+        });
+
+        // Stripe
         const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
         const errorMessage = document.getElementById('error-message');
 
-        // Ajoutez un écouteur d'événement au bouton
         document.getElementById('checkout-button').addEventListener('click', async () => {
             try {
-                // Envoyer une requête pour créer une session de paiement pour la formation
                 const response = await fetch('https://alkyai.onrender.com/create-checkout-session-formation', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                 });
 
-                // Vérifiez si la réponse est OK
                 if (!response.ok) {
                     const errorData = await response.json();
                     throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
                 }
 
-                // Récupérez l'ID de la session Stripe
                 const session = await response.json();
-
-                // Redirigez vers la page de paiement Stripe
                 const result = await stripe.redirectToCheckout({ sessionId: session.id });
 
-                // Gestion des erreurs de redirection
                 if (result.error) {
                     errorMessage.textContent = result.error.message;
                     errorMessage.style.display = 'block';
                 }
             } catch (error) {
-                // Affichez l'erreur
                 errorMessage.textContent = `Erreur : ${error.message}`;
                 errorMessage.style.display = 'block';
                 console.error("Erreur :", error);
