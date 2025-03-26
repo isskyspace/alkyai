@@ -57,6 +57,7 @@ nav {
     display: flex;
     justify-content: center;
     flex-grow: 1;
+    margin-left: -96px;
 }
 
 nav ul {
