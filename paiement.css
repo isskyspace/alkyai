@@ -57,7 +57,9 @@ nav {
     display: flex;
     justify-content: center;
     flex-grow: 1;
+    
 }
+
 
 nav ul {
     list-style: none;
@@ -157,7 +159,36 @@ nav ul li a {
         font-size: 18px;
     }
 }
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+}
 
+.main-image {
+    width: 200px;
+    height: auto;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.lock-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px; /* Taille augmentée */
+    height: 120px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+/* Effet au survol */
+.image-wrapper:hover .lock-overlay {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.05);
+}
 /* Le reste de votre CSS existant reste inchangé */
 .image-container {
     text-align: center;
