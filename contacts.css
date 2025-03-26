@@ -11,9 +11,6 @@ body {
     background-color: #f4f4f4;
     color: #333;
     width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 }
 
 /* En-tête */
@@ -26,45 +23,139 @@ header {
     padding: 10px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-    flex-wrap: wrap;
+    position: relative;
 }
 
-header .logo h1 {
+/* Styles pour le logo */
+.logo a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+}
+
+.logo a:hover {
+    opacity: 0.8;
+}
+
+.logo img {
+    height: 30px;
+    width: auto;
+    border-radius: 15px;
+}
+
+.logo h1 {
     font-size: 1.6rem;
     font-family: Georgia, 'Times New Roman', Times, serif;
     white-space: nowrap;
 }
 
+/* Navigation */
+/* Centrer le menu et bien espacer */
 nav {
     display: flex;
     justify-content: center;
     flex-grow: 1;
 }
-header .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px; /* Espacement entre le logo et le texte */
-}
-
-header .logo img {
-    height: 30px; /* Ajuste selon la taille désirée */
-    width: auto; /* Garde les proportions */
-    border-radius: 15px;
-}
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 80px;
+    gap: 80px; /* Espacement équilibré */
     padding: 0;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; /* Garde tout sur une seule ligne */
 }
 
+/* Style des liens de navigation */
 nav ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 15px;
+    font-size: 15px; /* Taille correcte */
     padding: 8px;
+}
+
+/* Bouton burger */
+.burger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 100;
+}
+
+.burger span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: white;
+    border-radius: 3px;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.burger span:nth-child(1) {
+    top: 0;
+}
+
+.burger span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.burger span:nth-child(3) {
+    bottom: 0;
+}
+
+.burger.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+}
+
+/* Version mobile */
+@media screen and (max-width: 768px) {
+    .burger {
+        display: block;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #333;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease;
+        z-index: 99;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+    }
 }
 /* Conteneur principal */
 main {
@@ -133,73 +224,4 @@ footer {
     padding: 15px 5%;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
-}
-/* Styles pour le logo */
-.logo a {
-    text-decoration: none; /* Supprime le soulignement du lien */
-    display: flex; /* Aligne l'image et le texte horizontalement */
-    align-items: center; /* Centre verticalement l'image et le texte */
-    gap: 10px; /* Espacement entre l'image et le texte */
-    color: inherit; /* Hérite la couleur du texte parent */
-}
-
-.logo a:hover {
-    opacity: 0.8; /* Effet de survol optionnel */
-}
-
-.logo img {
-    height: 30px; /* Ajustez la taille du logo si nécessaire */
-    width: auto;
-    border-radius: 15px;
-}
-
-.logo h1 {
-    font-size: 1.6rem; /* Ajustez la taille du texte si nécessaire */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    white-space: nowrap;
-}
-
-/* Ajustement pour mobile */
-@media screen and (max-width: 768px) {
-    header {
-        padding: 8px 3%;
-        flex-wrap: wrap; /* Permet de passer en ligne si nécessaire */
-    }
-    .logo {
-        display: flex;
-        justify-content: center; /* Centre le logo */
-        align-items: center; /* Assure l'alignement vertical */
-        width: 100%; /* Prend toute la largeur */
-        margin-bottom: 10px; /* Ajoute un peu d'espace sous le logo */
-    }
-    header .logo h1 {
-        font-size: 1.4rem;
-        text-align: center; /* Réduction de la taille */
-    }
-
-    nav ul {
-        gap: 30px; /* Réduction de l’espace pour tenir sur une ligne */
-    }
-
-    nav ul li a {
-        font-size: 12px; /* Texte plus petit pour ne pas couper */
-        padding: 5px;
-    }
-
-    /* Ajuster le menu pour qu'il soit aligné correctement sur les petits écrans */
-    .logo, nav {
-        flex-basis: 100%;
-        text-align: center; /* Centrer le contenu sur mobile */
-    }
-
-    /* Modification pour "Mon compte" et "Adhérer" sur mobile */
-    nav ul {
-        flex-wrap: wrap; /* Permet le retour à la ligne si nécessaire */
-        justify-content: space-around; /* Répartition équitable des éléments */
-    }
-
-    nav ul li {
-        flex: 1;
-        text-align: center; /* Assure l'alignement des éléments */
-    }
 }

@@ -20,6 +20,11 @@
                 <h1>Alky AI</h1>
             </a>
         </div>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Accueil</a></li>
@@ -58,6 +63,16 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
+        // Menu burger
+        document.addEventListener('DOMContentLoaded', function() {
+            const burger = document.querySelector('.burger');
+            const nav = document.querySelector('nav');
+            
+            burger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                nav.classList.toggle('active');
+            });
+        });
         document.addEventListener("DOMContentLoaded", function () {
             emailjs.init("7uI9LfoyE1s6bVMhd"); // Remplace par ton User ID EmailJS
     
