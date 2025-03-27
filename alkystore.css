@@ -816,6 +816,61 @@ footer {
       color: #3498db;
     }
   }
+
+/* Version desktop (existant déjà) */
+.energy-flow {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+  }
+  
+  .process-img {
+    width: 300px;
+    border-radius: 10px;
+    margin-right: 2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .steps {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  /* Version mobile */
+  @media (max-width: 768px) {
+    .energy-flow {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .process-img {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+    }
+  
+    .steps {
+      width: 100%;
+      padding-left: 30px; /* Décale tout le contenu */
+      position: relative;
+    }
+  
+    .steps h4 {
+      position: relative;
+      left: -10px; /* Ajuste précisément le titre */
+      padding-left: 15px;
+      border-left: 3px solid #3498db; /* Ajoute une bordure décorative */
+    }
+  
+    /* Animation optionnelle au scroll */
+    .steps {
+      transition: transform 0.3s ease;
+    }
+    
+    .steps.scrolled {
+      transform: translateX(10px);
+    }
+  }
 .alkybin-description .description-container > p.animate__animated {
     margin-bottom: 3rem; /* Ajustez cette valeur */
   }
