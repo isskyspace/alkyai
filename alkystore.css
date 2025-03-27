@@ -779,6 +779,43 @@ footer {
     line-height: 1.3;
     animation: fadeInDown 1s ease-out;
 }
+@media (max-width: 768px) {
+    .energy-flow {
+      /* Organisation en colonne pour mobile */
+      flex-direction: column;
+      align-items: flex-start; /* Alignement à gauche */
+    }
+  
+    .process-img {
+      /* Image prend toute la largeur avec marge en bas */
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+  
+    .steps {
+      /* Décale tout le contenu des steps */
+      padding-left: 25px;
+      width: 100%;
+    }
+  
+    .steps h4 {
+      /* Style spécifique pour le titre */
+      position: relative;
+      left: 10px;
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+  
+    /* Option: Ajoute une icône/flèche devant le titre */
+    .steps h4::before {
+      content: "→";
+      position: absolute;
+      left: -20px;
+      color: #3498db;
+    }
+  }
 .alkybin-description .description-container > p.animate__animated {
     margin-bottom: 3rem; /* Ajustez cette valeur */
   }
