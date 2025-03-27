@@ -835,7 +835,28 @@ footer {
     flex: 1;
     min-width: 300px;
   }
+  @media (max-width: 768px) {
+    .steps h4 {
+      text-align: center; /* Centre le texte */
+      width: 90%; /* Réduit la largeur */
+      margin: 0 auto 15px; /* Centre le bloc et ajoute marge basse */
+      padding: 0 10px; /* Espacement interne */
+      font-size: 1.2rem; /* Taille de police légèrement réduite */
+      white-space: normal; /* Assure le retour à la ligne */
+      word-break: keep-all; /* Évite la césure des mots */
+      line-height: 1.4; /* Meilleure lisibilité */
+    }
   
+    .energy-flow {
+      text-align: center; /* Centre les éléments enfants */
+    }
+  
+    .steps {
+      width: 100%; /* Prend toute la largeur */
+      padding: 0 5%; /* Espacement latéral */
+      box-sizing: border-box; /* Inclut le padding dans la largeur */
+    }
+  }
   /* Version mobile */
   @media (max-width: 768px) {
     .energy-flow {
