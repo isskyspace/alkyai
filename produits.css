@@ -12,7 +12,31 @@ body {
     color: #333;
     width: 100%;
 }
-
+@media screen and (max-width: 768px) {
+  .hero-text .cta-buttons {
+    margin-bottom: 40px; /* Augmentation de la marge */
+  }
+}
+@media screen and (max-width: 768px) {
+  .tech-feature {
+    flex-direction: column; /* Change la direction en colonne */
+    align-items: flex-start; /* Alignement à gauche */
+  }
+  
+  .tech-feature .feature-number {
+    margin-bottom: 10px; /* Espace entre le numéro et le titre */
+  }
+  
+  .tech-feature h3 {
+    margin-bottom: 5px; /* Espace entre le titre et le paragraphe */
+  }
+  
+  .tech-feature p {
+    margin-top: 0; /* Supprime la marge haute par défaut */
+    margin-left: 0; /* Supprime le décalage gauche */
+    width: 100%; /* Prend toute la largeur */
+  }
+}
 /* En-tête */
 header {
     background-color: #333;
