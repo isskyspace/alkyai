@@ -1085,3 +1085,22 @@ footer {
     /* Mettre à jour pour 6 colonnes */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
+/* Styles par défaut (desktop) */
+.container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  /* Responsive pour les écrans de moins de 768px */
+  @media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Empile les éléments */
+      width: 100%; /* Pleine largeur */
+    }
+    
+    .element {
+      width: 100%; /* Chaque élément prend toute la largeur */
+    }
+  }
