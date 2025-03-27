@@ -1104,3 +1104,30 @@ footer {
       width: 100%; /* Chaque élément prend toute la largeur */
     }
   }
+
+  @media screen and (max-width: 768px) {
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+    }
+  
+    /* Empêche tout débordement des sections */
+    .container, section, header, footer {
+      max-width: 100vw;
+      overflow: hidden;
+    }
+  
+    /* Vérifie les images et vidéos */
+    img, video {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    /* Corrige les marges ou padding excessifs */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+  }
+  
