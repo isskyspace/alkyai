@@ -692,6 +692,80 @@ footer {
         margin-bottom: 40px;
     }
 }
+/* Empêche le débordement horizontal */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Assure que le conteneur principal ne dépasse pas */
+.container {
+    max-width: 100%;
+    width: 100vw;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Ajuste les sections pour éviter l'espace blanc */
+section {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Empêche les éléments trop larges de dépasser */
+img, iframe, .content-box {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Corrige l'affichage des cartes */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 90%;
+    margin: 0 auto;
+    word-wrap: break-word;
+}
+
+/* Empêche le texte d’être coupé */
+p, h1, h2, h3, h4 {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Corrige les boutons */
+button, .btn {
+    max-width: 100%;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Correction spécifique pour mobile */
+@media screen and (max-width: 768px) {
+    /* Ajustement des blocs mal positionnés */
+    .content-box {
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    /* Assure que les éléments ne débordent pas */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    /* Ajuste les marges et espacements */
+    .section {
+        padding: 20px;
+    }
+}
 
 /* Styles pour la section présent */
 .present {
