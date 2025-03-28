@@ -69,6 +69,11 @@
                 </p>
             </div>
             <button type="button" id="checkout-button">Paiement</button>
+            <div id="loading-message" style="display: none; text-align: center; margin-top: 10px;">
+                <p>Merci de patienter...</p>
+                <div class="spinner"></div>
+            </div>
+            
             <h3>Après avoir cliqué sur "Paiement", merci de patienter quelques instants, une page de paiement s'ouvrira !</h3>
         </div>
     </section>
@@ -104,48 +109,71 @@
     </footer>
 
     <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        // Menu burger
-        document.addEventListener('DOMContentLoaded', function() {
-            const burger = document.querySelector('.burger');
-            const nav = document.querySelector('nav');
-            
-            burger.addEventListener('click', function() {
-                this.classList.toggle('active');
-                nav.classList.toggle('active');
-            });
-        });
+<script>
+    // Menu burger
+    document.addEventListener('DOMContentLoaded', function() {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('nav');
         
-
-        // Stripe
-        const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
-        const errorMessage = document.getElementById('error-message');
-
-        document.getElementById('checkout-button').addEventListener('click', async () => {
-            try {
-                const response = await fetch('https://alkyai.onrender.com/create-checkout-session-formation', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                });
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
-                }
-
-                const session = await response.json();
-                const result = await stripe.redirectToCheckout({ sessionId: session.id });
-
-                if (result.error) {
-                    errorMessage.textContent = result.error.message;
-                    errorMessage.style.display = 'block';
-                }
-            } catch (error) {
-                errorMessage.textContent = `Erreur : ${error.message}`;
-                errorMessage.style.display = 'block';
-                console.error("Erreur :", error);
-            }
+        burger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
         });
-    </script>
+    });
+
+    // Stripe
+    const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
+    const errorMessage = document.getElementById('error-message');
+    const checkoutButton = document.getElementById('checkout-button');
+
+    // Création du message de chargement
+    const loadingMessage = document.createElement('div');
+    loadingMessage.id = 'loading-message';
+    loadingMessage.style.display = 'none';
+    loadingMessage.style.marginTop = '15px';
+    loadingMessage.style.textAlign = 'center';
+    loadingMessage.innerHTML = `
+        <p style="font-size: 16px; color: #333;">Merci de patienter...</p>
+        <div class="spinner" style="border: 4px solid rgba(0, 0, 0, 0.1); border-left-color: #000; width: 30px; height: 30px; border-radius: 50%; animation: spin 1s linear infinite; margin: auto;"></div>
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    `;
+
+    checkoutButton.parentNode.insertBefore(loadingMessage, checkoutButton.nextSibling);
+
+    // Gestion du clic sur le bouton de paiement
+    checkoutButton.addEventListener('click', async () => {
+        loadingMessage.style.display = 'block'; // Afficher le message
+
+        try {
+            const response = await fetch('https://alkyai.onrender.com/create-checkout-session-formation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
+            }
+
+            const session = await response.json();
+            const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+            if (result.error) {
+                throw new Error(result.error.message);
+            }
+        } catch (error) {
+            errorMessage.textContent = `Erreur : ${error.message}`;
+            errorMessage.style.display = 'block';
+            console.error("Erreur :", error);
+            loadingMessage.style.display = 'none'; // Cacher le message si erreur
+        }
+    });
+</script>
+
 </body>
 </html>
