@@ -85,8 +85,8 @@ app.post('/create-checkout-session-formation', async (req, res) => {
                 price_data: {
                     currency: 'eur', // Devise : euros
                     product_data: {
-                        name: 'Formation IA et Business', // Nom du produit
-                        description: 'Formation complète sur l\'IA et le business', // Description du produit
+                        name: 'Formation IA/Business/OFM', // Nom du produit
+                        description: 'Formation complète : Format PDF', // Description du produit
                     },
                     unit_amount: 3000, // Montant en centimes (90 € = 9000 centimes)
                 },
