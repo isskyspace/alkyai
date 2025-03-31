@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement de la Formation</title>
+    <link rel="stylesheet" href="paiementoa.css">
+    <link rel="icon" type="image/png" href="alkyai_logo_rounded.png">
+    <script src="https://js.stripe.com/v3/"></script>
+    <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+    <!-- Event snippet for Achat conversion page --> <script> gtag('event', 'conversion', { 'send_to': 'AW-16944560516/APyoCLyY5q0aEITz5Y8_', 'transaction_id': '' }); </script>
+    <!-- Google tag (gtag.js) --> <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16944560516"></script> <script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'AW-16944560516'); </script>
+</head>
+<body>
+    
+    <header>
+        <div class="logo">
+            <a href="https://alkyai.fr" target="_blank">
+                <img src="alkyai_logo_rounded.png" alt="Logo Alky AI">
+                <h1>Alky AI</h1>
+            </a>
+        </div>
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="contacts.html">Contacts</a></li>
+                <li><a href="formation.html">Ma Formation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="payment-form">
+        <div class="container">
+            <h2>Finalisez votre Achat</h2>
+            <div class="attention">
+                <p>
+                    La formation vous sera envoyée par mail. Assurez-vous d'utiliser le bon mail lors du paiement !
+                </p>
+            </div>
+           
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <a href="https://alkyai.fr/paiementoa.html" class="image-link" target="_blank">
+                        <img src="665eef4a19422104eb11b52d_65965a565f930e23c6491625_Business20(2)%20(1).png" alt="Description de l'image" class="main-image">
+                    </a>
+                    <img src="padlock_no_background.png" alt="Paiement sécurisé" class="lock-overlay">
+                </div>
+            </div>
+            <p class="price">
+                Prix de la formation : <strong>30 €</strong>
+            </p>
+            <div class="security-message">
+                <div class="security-icon">
+                    <img src="green-check-mark-icon-symbol-logo-tick-symbol-green-color-transparent-design-free-png.webp" alt="Paiement sécurisé" width="40">
+                </div>
+                <p>
+                    <strong class="green-text">Paiement 100% sécurisé :</strong>
+                    <span class="gray-text">Votre transaction est protégée par Stripe, le leader mondial des paiements en ligne.</span>
+                </p>
+                <p>
+                    <strong class="green-text">Remboursement possible :</strong>
+                    <span class="gray-text">Si vous n'êtes pas satisfait de la formation, vous pouvez demander un remboursement sous 30 jours.</span>
+                </p>
+            </div>
+            <button type="button" id="checkout-button">Paiement</button>
+            <div id="loading-message" style="display: none; text-align: center; margin-top: 10px;">
+                <p>Merci de patienter...</p>
+                <div class="spinner"></div>
+            </div>
+            
+            <h3>Le chargement peut prendre plus de temps que prévu suite aux maintenances. En cas de problème, contactez-nous via l'onglet dédié "Contacts". En vous remerciant !</h3>
+        </div>
+    </section>
+    <section class="logo-section">
+        <div class="container">
+            <div class="logos-container">
+                <a href="https://www.lien1.com" target="_blank">
+                    <img src="Mastercard-logo.svg.webp" alt="Logo 1" class="logo">
+                </a>
+                <a href="https://www.americanexpress.com/fr-fr/" target="_blank">
+                    <img src="amercican.png" alt="Logo 2" class="logo">
+                </a>
+                <a href="https://www.visa.fr/" target="_blank">
+                    <img src="Visa-Logo-2006–2014.jpg" alt="Logo 3" class="logo">
+                </a>
+                <a href="https://pay.google.com/intl/fr_fr/about/" target="_blank">
+                    <img src="Google_Pay_Logo.svg.png" alt="Logo 3" class="logo">
+                </a>
+                <a href="https://www.apple.com/fr/apple-pay/" target="_blank">
+                    <img src="Apple_Pay_logo.svg.png" alt="Logo 3" class="logo">
+                </a>
+                <a href="https://stripe.com/fr" target="_blank">
+                    <img src="stripe-1e3d81f8.png" alt="Logo 3" class="logo">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Alky AI. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="https://js.stripe.com/v3/"></script>
+<script>
+    // Menu burger
+    document.addEventListener('DOMContentLoaded', function() {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('nav');
+        
+        burger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+    });
+
+    // Stripe
+    const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
+    const errorMessage = document.getElementById('error-message');
+    const checkoutButton = document.getElementById('checkout-button');
+
+    // Création du message de chargement
+    const loadingMessage = document.createElement('div');
+    loadingMessage.id = 'loading-message';
+    loadingMessage.style.display = 'none';
+    loadingMessage.style.marginTop = '15px';
+    loadingMessage.style.textAlign = 'center';
+    loadingMessage.innerHTML = `
+        <p style="font-size: 16px; color: #333;">Merci de patienter...</p>
+        <div class="spinner" style="border: 4px solid rgba(0, 0, 0, 0.1); border-left-color: #000; width: 30px; height: 30px; border-radius: 50%; animation: spin 1s linear infinite; margin: auto;"></div>
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+    `;
+
+    checkoutButton.parentNode.insertBefore(loadingMessage, checkoutButton.nextSibling);
+
+    // Gestion du clic sur le bouton de paiement
+    checkoutButton.addEventListener('click', async () => {
+        loadingMessage.style.display = 'block'; // Afficher le message
+
+        try {
+            const response = await fetch('https://alkyai.onrender.com/create-checkout-session-formation', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
+            }
+
+            const session = await response.json();
+            const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+            if (result.error) {
+                throw new Error(result.error.message);
+            }
+        } catch (error) {
+            errorMessage.textContent = `Erreur : ${error.message}`;
+            errorMessage.style.display = 'block';
+            console.error("Erreur :", error);
+            loadingMessage.style.display = 'none'; // Cacher le message si erreur
+        }
+    });
+</script>
+
+</body>
+</html>
