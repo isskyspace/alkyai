@@ -38,42 +38,35 @@ app.post("/send-email", async (req, res) => {
     }
 });
 
-// Route pour créer la session de paiement avec un montant sélectionné
-app.post('/create-checkout-session', async (req, res) => {
-    try {
-        const { amount } = req.body;
+// Route pour créer la session de paiement pour Bac/Brevet à 1€
+app.post('/create-checkout-session-formation', async (req, res) => {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [{
+        price_data: {
+          currency: 'eur',
+          product_data: {
+            name: 'Résultats anticipés Bac/Brevet 2025',
+            description: 'Recevez votre estimation personnalisée avant la date officielle',
+          },
+          unit_amount: 100, // ✅ 1€ = 100 centimes
+        },
+        quantity: 1,
+      }],
+      mode: 'payment',
+      success_url: 'https://alkyai.fr/success.html',
+      cancel_url: 'https://alkyai.fr/cancel.html',
+    });
 
-        // Validation du montant
-        if (isNaN(amount) || amount <= 0) {
-            throw new Error("Le montant doit être un nombre valide.");
-        }
-
-        // Créez une session de paiement Stripe avec un montant dynamique
-        const session = await stripe.checkout.sessions.create({
-            payment_method_types: ['card'],
-            line_items: [{
-                price_data: {
-                    currency: 'eur', // Devise : euros
-                    product_data: {
-                        name: 'Don pour AlkyBin', // Nom du produit
-                        description: 'Soutenez le projet AlkyBin', // Description du produit
-                    },
-                    unit_amount: Math.round(amount * 100), // Montant en centimes
-                },
-                quantity: 1, // Quantité
-            }],
-            mode: 'payment', // Mode de paiement
-            success_url: 'https://alkyai.fr/success.html', // URL de succès
-            cancel_url: 'https://alkyai.fr/cancel.html',  // URL d'annulation
-        });
-
-        // Renvoyez l'ID de la session au client
-        res.json({ id: session.id });
-    } catch (error) {
-        console.error("Erreur lors de la création de la session Stripe :", error); // Log pour les erreurs
-        res.status(500).json({ error: error.message });
-    }
+    res.json({ id: session.id });
+  } catch (error) {
+    console.error("Erreur lors de la création de la session Stripe :", error);
+    res.status(500).json({ error: error.message });
+  }
 });
+
+     
 
 // Route pour créer la session de paiement pour la formation (90 € fixe)
 app.post('/create-checkout-session-formation', async (req, res) => {
@@ -88,7 +81,7 @@ app.post('/create-checkout-session-formation', async (req, res) => {
                         name: 'Formation IA/Business/OFM', // Nom du produit
                         description: 'Formation complète : Format PDF', // Description du produit
                     },
-                    unit_amount: 3000, // Montant en centimes (90 € = 9000 centimes)
+                    unit_amount: 100, // Montant en centimes (90 € = 9000 centimes)
                 },
                 quantity: 1, // Quantité
             }],

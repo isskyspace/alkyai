@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlkyAI – Résultats BAC/Brevet 2025</title>
+  <link rel="stylesheet" href="contacts.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://js.stripe.com/v3/"></script>
+  <link rel="icon" href="9448bfc1-2cb2-46be-924a-c9d4da2d4d9f.png" type="image/png">
+</head>
+<body>
+  <header class="hero">
+    <div class="logo-container">
+      <img src="9448bfc1-2cb2-46be-924a-c9d4da2d4d9f.png" alt="Logo AlkyAI" class="logo">
+      <h1 class="site-title">AlkyAI</h1>
+      <p class="subtitle">Reçois tes résultats du Bac ou du Brevet 2025 <strong>avant tout le monde !</strong></p>
+      
+
+    </div>
+    <div class="official-logos">
+  <img src="Logo_du_Gouvernement_de_la_République_française_(2020).svg.png" alt="Logo Parcoursup" />
+  <img src="Logo-parcoursup-bis.jpg" alt="Logo Éducation nationale" />
+  <img src="logo-ministere-education-nationale.jpg" alt="Logo Gouvernement" />
+</div>
+
+  </header>
+
+  <section class="intro">
+    <h2>Un service rapide, confidentiel et accessible pour 1€ seulement !</h2>
+    <p>
+      AlkyAI utilise l’intelligence artificielle et les informations officielles pour retrouver vos résultats au Bac ou au Brevet <strong>avant leur publication, le 4 juillet 2025</strong>. Payez 1€ et recevez vos résultats par mail.
+    </p>
+  </section>
+
+  <section class="form-section">
+    <div class="security-message">
+  <span class="lock-icon">🔒</span>
+  <p>
+    Paiement 100% sécurisé via <a href="https://stripe.com" target="_blank" rel="noopener noreferrer">Stripe</a>. Aucune information bancaire n’est stockée sur notre site.
+  </p>
+</div>
+
+
+    <h2>Faire une demande</h2>
+    <form id="payment-form">
+      <label for="name">Nom complet :</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Adresse mail :</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="exam-type">Type d'examen :</label>
+      <select id="exam-type" name="exam-type" required>
+        <option value="">-- Choisir --</option>
+        <option value="bac">Baccalauréat 2025</option>
+        <option value="brevet">Brevet 2025</option>
+      </select>
+
+      <label for="academy">Académie :</label>
+      <input type="text" id="academy" name="academy" required>
+
+      <label for="subject">Série ou spécialités (pour le bac) :</label>
+      <input type="text" id="subject" name="subject">
+
+      <button type="button" id="checkout-button">Payer 1€ et envoyer la demande</button>
+      <p id="error-message" style="color: red; display: none;"></p>
+      <div class="payment-icons">
+  <img src="Apple_Pay_logo.svg.png" alt="Visa">
+  <img src="Mastercard-logo.svg.webp" alt="Mastercard">
+  <img src="stripe-1e3d81f8.png" alt="Amex">
+  <img src="Google_Pay_Logo.svg.png" alt="11">
+  <img src="Visa-Logo-2006–2014.jpg" alt="22">
+</div>
+
+
+
+    </form>
+  </section>
+  <section class="service-notice">
+  <p>📩 Les résultats sont envoyés par email après paiement.<small class="email-hint">Veuillez entrer une adresse email valide – votre résultat y sera envoyé directement.</small></p>
+  <p>💸 Satisfait ou remboursé : vous pouvez demander un remboursement en cas d’erreur ou d’insatisfaction.</p>
+</section>
+
+
+
+  <footer class="trusted-footer">
+  <div class="trust-messages">
+    <p>🔒 Paiement 100% sécurisé via <a href="https://stripe.com" target="_blank" rel="noopener noreferrer">Stripe</a></p>
+    <p>📁 Données hébergées en Europe chez <a href="https://www.ionos.fr" target="_blank" rel="noopener noreferrer">IONOS</a></p>
+    <p>📚 Méthodologie inspirée des critères de l'<a href="https://www.education.gouv.fr" target="_blank" rel="noopener noreferrer">Éducation Nationale</a></p>
+    <p>✅ Site certifié conforme RGPD – aucune donnée revendue</p>
+  </div>
+  <div class="legal">
+    <p>&copy; 2025 AlkyAI – Tous droits réservés</p>
+    
+  </div>
+</footer>
+
+
+        
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const stripe = Stripe('pk_live_51IOUQQLiKOMWxvxfVB9JQCvanxG3h9IuSwLSI8ubrN6oOSzL2ePTtADENrqfyG8bcBna0F3QYMKKBDPkA2P2BMlC000SnErLWq');
+    const errorMessage = document.getElementById('error-message');
+    const checkoutButton = document.getElementById('checkout-button');
+
+    const loadingMessage = document.createElement('div');
+    loadingMessage.id = 'loading-message';
+    loadingMessage.style.display = 'none';
+    loadingMessage.style.marginTop = '15px';
+    loadingMessage.style.textAlign = 'center';
+    loadingMessage.innerHTML = `
+      <p style="font-size: 16px;">Merci de patienter...</p>
+      <div class="spinner" style="border: 4px solid rgba(0, 0, 0, 0.1); border-left-color: #000; width: 30px; height: 30px; border-radius: 50%; animation: spin 1s linear infinite; margin: auto;"></div>
+    `;
+    checkoutButton.parentNode.insertBefore(loadingMessage, checkoutButton.nextSibling);
+
+    checkoutButton.addEventListener('click', async () => {
+      loadingMessage.style.display = 'block';
+      errorMessage.style.display = 'none';
+
+      try {
+        const response = await fetch('https://alkyai.onrender.com/create-checkout-session-formation', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || "Erreur lors de la création de la session de paiement.");
+        }
+
+        const session = await response.json();
+        const result = await stripe.redirectToCheckout({ sessionId: session.id });
+
+        if (result.error) {
+          throw new Error(result.error.message);
+        }
+      } catch (error) {
+        errorMessage.textContent = `Erreur : ${error.message}`;
+        errorMessage.style.display = 'block';
+        loadingMessage.style.display = 'none';
+        console.error("Erreur :", error);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
