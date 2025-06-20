@@ -50,7 +50,7 @@ app.post('/create-checkout-session-formation', async (req, res) => {
             name: 'Résultats anticipés Bac/Brevet 2025',
             description: 'Recevez votre estimation personnalisée avant la date officielle',
           },
-          unit_amount: 100, // ✅ 1€ = 100 centimes
+          unit_amount: 1000, // ✅ 1€ = 100 centimes
         },
         quantity: 1,
       }],
