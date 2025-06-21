@@ -50,7 +50,7 @@ app.post('/create-checkout-session-formation', async (req, res) => {
             name: 'Résultats anticipés Bac/Brevet 2025',
             description: 'Recevez votre estimation personnalisée avant la date officielle',
           },
-          unit_amount: 100, // ✅ 1€ = 100 centimes
+          unit_amount: 200, // ✅ 1€ = 100 centimes
         },
         quantity: 1,
       }],
@@ -81,7 +81,7 @@ app.post('/create-checkout-session-formation', async (req, res) => {
                         name: 'Formation IA/Business/OFM', // Nom du produit
                         description: 'Formation complète : Format PDF', // Description du produit
                     },
-                    unit_amount: 100, // Montant en centimes (90 € = 9000 centimes)
+                    unit_amount: 200, // Montant en centimes (90 € = 9000 centimes)
                 },
                 quantity: 1, // Quantité
             }],
